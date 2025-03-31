@@ -8,6 +8,30 @@ package autonoma.HospitalApp.models;
  *
  * @author solis
  */
-public class EmpleadoOperativo {
+public class EmpleadoOperativo extends Empleado {
+    
+    private String areaTrabajada;
+    
+    /*
+    se obtienen los atributos de empleado y se hace l metodod constructor  
+    */
+    public EmpleadoOperativo(String areaTrabajada, String nombre, int id, int edad, double salario) {
+        super(nombre, id, edad, salario);
+        this.areaTrabajada = areaTrabajada;
+    }
+
+    public String getAreaTrabajada() {
+        return areaTrabajada;
+    }
+
+    public void setAreaTrabajada(String areaTrabajada) {
+        this.areaTrabajada = areaTrabajada;
+    }
+    
+    
+
+
+    
+    
     
 }
