@@ -55,18 +55,18 @@ public class Hospital {
     /*
     el atributo localizacion, se refiere a la latitud y localizacion
     */
-    private localizacion Localizacion;
+    private Localizacion localizacion;
     
     /*
     se refiere al gerente que tiene el hospital
     */
-    private gerente Gerente;
+    private Gerente gerente;
     
     /*
     Se crean los metodos constructores de dichos atributos
     */
 
-    public Hospital(String nombre, String direccion, int telefono, String logo, double presupuesto, double metaVentasAnual, Date fechaFundacion, boolean estado, localizacion Localizacion, gerente Gerente) {
+    public Hospital(String nombre, String direccion, int telefono, String logo, double presupuesto, double metaVentasAnual, Date fechaFundacion, boolean estado, Localizacion localizacion, Gerente gerente) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
@@ -75,9 +75,14 @@ public class Hospital {
         this.metaVentasAnual = metaVentasAnual;
         this.fechaFundacion = fechaFundacion;
         this.estado = estado;
-        this.Localizacion = Localizacion;
-        this.Gerente = Gerente;
+        this.localizacion = Localizacion;
+        this.gerente = Gerente;
     }
+    
+        /*
+    se hacen metodos getter and setters para dichos atributos
+    */
+
 
     public String getNombre() {
         return nombre;
@@ -143,21 +148,27 @@ public class Hospital {
         this.estado = estado;
     }
 
-    public localizacion getLocalizacion() {
-        return Localizacion;
+    public Localizacion getLocalizacion() {
+        return localizacion;
     }
 
-    public void setLocalizacion(localizacion Localizacion) {
-        this.Localizacion = Localizacion;
+    public void setLocalizacion(Localizacion Localizacion) {
+        this.localizacion = Localizacion;
     }
 
-    public gerente getGerente() {
-        return Gerente;
+    public Gerente getGerente() {
+        return gerente;
     }
 
-    public void setGerente(gerente Gerente) {
-        this.Gerente = Gerente;
+    public void setGerente(Gerente gerente) {
+        this.gerente = gerente;
     }
+    
+    
+
+
+    
+    
     
     
     

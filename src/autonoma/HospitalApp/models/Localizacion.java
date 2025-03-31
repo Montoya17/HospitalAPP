@@ -19,10 +19,16 @@ public class Localizacion {
     */
     private double longitud;
 
+    
+    //se hace el metodo constrcutor para dichos atributos
     public Localizacion(double latitud, double longitud) {
         this.latitud = latitud;
         this.longitud = longitud;
     }
+    
+    /*
+    se hacen metodos getter and setters para dichos atributos
+    */
 
     public double getLatitud() {
         return latitud;
