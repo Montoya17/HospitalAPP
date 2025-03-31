@@ -5,11 +5,15 @@
 package autonoma.HospitalApp.models;
 
 /**
- *
+ * se crea la clase EmpleadoOperativo
  * @author solis
  */
 public class EmpleadoOperativo extends Empleado {
     
+    
+    /*
+    atrubto se refiere al area a la que se le asigno al empleado
+    */
     private String areaTrabajada;
     
     /*

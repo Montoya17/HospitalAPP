@@ -13,7 +13,7 @@ import java.util.Date;
  */
 
 //////Atributos
-public class Hospital {
+public class Hospital  {
       /**
      * se crean los atributos
      * atributo nombre del hospital
@@ -61,7 +61,7 @@ public class Hospital {
     se refiere al gerente que tiene el hospital
     */
     private Gerente gerente;
-    
+
     /*
     Se crean los metodos constructores de dichos atributos
     */
@@ -75,8 +75,8 @@ public class Hospital {
         this.metaVentasAnual = metaVentasAnual;
         this.fechaFundacion = fechaFundacion;
         this.estado = estado;
-        this.localizacion = Localizacion;
-        this.gerente = Gerente;
+        this.Localizacion = localizacion;
+        this.Gerente = gerente;
     }
     
         /*

@@ -5,7 +5,7 @@
 package autonoma.HospitalApp.models;
 
 /**
- *
+ * se crea la clase EmpleadoSalud
  * @author solis
  */
 public class EmpleadoSalud extends Empleado {
