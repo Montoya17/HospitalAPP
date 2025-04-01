@@ -4,10 +4,17 @@
  */
 package autonoma.HospitalApp.main;
 
+
+
 /**
  *
  * @author solis
  */
-public class HospitalApp {
+
+public class HospitalApp{
     
+    public static void main(String[] args) {
+       
+    }
 }
+  

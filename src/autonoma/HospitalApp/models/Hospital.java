@@ -50,23 +50,26 @@ public class Hospital  {
     /*
     el atributo estado se refiere al estado de lhospital(si esta en quiebra o no)
     */
-    private boolean estado;
+    private boolean enQuiebra;
     
     /*
-    el atributo localizacion, se refiere a la latitud y localizacion
+    el atributo latitud, se refiere a la latitud del hospital
     */
-    private Localizacion localizacion;
+    private double latitud;
     
-    /*
-    se refiere al gerente que tiene el hospital
+    private double longitud;
+ 
+   
+    /*se refiere al gerente que tiene el hospital
     */
     private Gerente gerente;
+    private final Gerente Gerente;
 
     /*
     Se crean los metodos constructores de dichos atributos
     */
 
-    public Hospital(String nombre, String direccion, int telefono, String logo, double presupuesto, double metaVentasAnual, Date fechaFundacion, boolean estado, Localizacion localizacion, Gerente gerente) {
+    public Hospital(String nombre, String direccion, int telefono, String logo, double presupuesto, double metaVentasAnual, Date fechaFundacion, boolean enQuiebra, double latitud, double longitud, Gerente gerente, Gerente Gerente) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
@@ -74,16 +77,54 @@ public class Hospital  {
         this.presupuesto = presupuesto;
         this.metaVentasAnual = metaVentasAnual;
         this.fechaFundacion = fechaFundacion;
-        this.estado = estado;
-        this.Localizacion = localizacion;
-        this.Gerente = gerente;
+        this.enQuiebra = enQuiebra;
+        this.latitud = latitud;
+        this.longitud = longitud;
+        this.gerente = gerente;
+        this.Gerente = Gerente;
     }
+      /*
+    se hace el metodo de editar la informacion del hospital
+    */
     
-        /*
+    public void editarInformacion(String nombre, String direccion, int telefono, String logo, double presupuesto,double metaVentasAnual,
+        Date fechaFundacion, boolean estado, double latitud, double longitud, Gerente gerente){
+      this.nombre = nombre;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.logo = logo;
+        this.presupuesto = presupuesto;
+        this.metaVentasAnual = metaVentasAnual;
+        this.fechaFundacion = fechaFundacion;
+        this.enQuiebra = estado;
+        this.latitud = latitud;
+        this.longitud = longitud;
+        this.gerente = gerente;
+        System.out.println("La informacion del hospital fue cambiada correctamente.");}
+    
+    
+    /*
+    se hace el metodo para mostrar la inofrmacion de los atributos 
+    */
+    public void mostrarInformacion(){
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Dirección: " + direccion);
+        System.out.println("Teléfono: " + telefono);
+        System.out.println("Presupuesto: " + presupuesto);
+        System.out.println("Meta de ventas anual: " + metaVentasAnual);
+        System.out.println("Fecha de fundación: " + fechaFundacion);
+        System.out.println("Estado: " + (enQuiebra ? "En quiebra" : "Activo"));
+        System.out.println("Localización: Latitud " + latitud + ", Longitud " + longitud);
+        System.out.println("Gerente: " + gerente.getNombre());}
+    
+
+   
+
+    
+    
+/*
     se hacen metodos getter and setters para dichos atributos
     */
-
-
     public String getNombre() {
         return nombre;
     }
@@ -141,20 +182,38 @@ public class Hospital  {
     }
 
     public boolean isEstado() {
-        return estado;
+        return enQuiebra;
     }
 
-    public void setEstado(boolean estado) {
-        this.estado = estado;
+    public void setEstado(boolean enQuiebra) {
+        this.enQuiebra = enQuiebra;
     }
 
-    public Localizacion getLocalizacion() {
-        return localizacion;
+    public boolean isEnQuiebra() {
+        return enQuiebra;
     }
 
-    public void setLocalizacion(Localizacion Localizacion) {
-        this.localizacion = Localizacion;
+    public void setEnQuiebra(boolean enQuiebra) {
+        this.enQuiebra = enQuiebra;
     }
+
+    public double getLatitud() {
+        return latitud;
+    }
+
+    public void setLatitud(double latitud) {
+        this.latitud = latitud;
+    }
+
+    public double getLongitud() {
+        return longitud;
+    }
+
+    public void setLongitud(double longitud) {
+        this.longitud = longitud;
+    }
+
+
 
     public Gerente getGerente() {
         return gerente;
@@ -164,8 +223,7 @@ public class Hospital  {
         this.gerente = gerente;
     }
     
-    
-
+ 
 
     
     
