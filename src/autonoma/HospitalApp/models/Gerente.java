@@ -39,6 +39,24 @@ public class Gerente {
         this.carrera = carrera;
     }
     
+    
+    /*
+    se crea el metodo actualizarDatos para actualizar los datos del gerente
+    */
+    public void actualizarDatos(String nombre, int id, int edad,String carrera){
+        this.nombre = nombre;
+        this.id = id;
+        this.edad = edad;
+        this.carrera = carrera;
+        System.out.println("Datos actualizados correctamente");}
+    
+    /*
+    se crea el metodo obtenerDatos para obtener los datos ddel gerente
+    */
+    
+    public String obtenerDatos(){
+        return "Gerente:" + nombre + "\n Id" +id + "\n edad" + "\nCarrera" + carrera;}
+    
     /*
     se crea los getters and setters  con dichos atributos
     */
