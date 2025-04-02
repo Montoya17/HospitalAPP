@@ -26,17 +26,42 @@ public abstract  class Empleado {
     /*
     el atributo salario, hace refencial al salario del empleado
     */
-    private double salario;
+    private double salarioBase;
 
     /* 
     se crea el metodo constructor con los respectivos atributos
     */
-    public Empleado(String nombre, int id, int edad, double salario) {
+    public Empleado(String nombre, int id, int edad, double salarioBase) {
         this.nombre = nombre;
         this.id = id;
         this.edad = edad;
-        this.salario = salario;
+        this.salarioBase = salarioBase;
     }
+    /*
+    Se crea el metodo calcularSalario abstracto
+    porque es dependiendo del empleado
+    */
+    
+    public abstract double calcularSalario();
+    
+    /*
+    se cra el metodoeditarInformacio para editr la informacion del empleado
+    */
+    
+    public void editarInformacion(String nombre,int edad,double salarioBase){
+    this.nombre = nombre;
+    this.edad = edad;
+    this.salarioBase = salarioBase;
+        System.out.println("Informacion del empleado actualizada corectamente");}
+
+    
+    /*
+    se hace el metodo obtenerinformacion 
+    */
+     public String obtenerInformacion() {
+        return ", Nombre: " + nombre + "Id: " + id + ", Edad: " + edad + ", Salario Base: $" + salarioBase;
+    }
+    
     
     /*
     se crean los metodos getters and setters co los dichos atributos
@@ -67,11 +92,11 @@ public abstract  class Empleado {
     }
 
     public double getSalario() {
-        return salario;
+        return salarioBase;
     }
 
-    public void setSalario(double salario) {
-        this.salario = salario;
+    public void setSalario(double salarioBase) {
+        this.salarioBase = salarioBase;
     }
     
     

@@ -54,6 +54,11 @@ public class EmpleadoSalud extends Empleado {
     public void setHorasTrabajadas(int horasTrabajadas) {
         this.horasTrabajadas = horasTrabajadas;
     }
+
+    @Override
+    public double calcularSalario() {
+        return salarioBase + (salarioBase*0.012*horasTrabajadas);
+    }
     
     
     

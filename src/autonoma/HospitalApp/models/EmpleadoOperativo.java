@@ -31,6 +31,11 @@ public class EmpleadoOperativo extends Empleado {
     public void setAreaTrabajada(String areaTrabajada) {
         this.areaTrabajada = areaTrabajada;
     }
+
+     @Override
+    public double calcularSalario() {
+        return salarioBase * 1.2;
+    }
     
     
 
