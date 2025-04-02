@@ -27,10 +27,9 @@ public class Cita {
     */
     private Double valor;
     /*
-    Se crea
     */
     /*
-    Se crea el metodo constructor
+    Se crea el metodo constructor de dichos atributos
     */
     public Cita(Paciente paciente, EmpleadoSalud medico, Date fecha, Double valor) {
         this.paciente = paciente;
