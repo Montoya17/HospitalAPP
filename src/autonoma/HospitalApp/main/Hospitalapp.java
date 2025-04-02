@@ -10,8 +10,9 @@ import autonoma.HospitalApp.models.Hospital;
 
 
 /**
- *
+ *@since 31/02/2025
  * @author solis
+ * se hace el main para el hospital
  */
 
 public class HospitalApp{
@@ -34,11 +35,11 @@ public class HospitalApp{
             gerente
         );
 
-        // Mostrar información inicial del hospital
+        // se hace el system para mostrar información inicial del hospital
         System.out.println("Esta es la informacion del hospital");
         hospital.mostrarInformacion();
 
-        // Editar la información del hospital
+        // se hace el metodo de  editar la información del hospital
         hospital.editarInformacion(
             "Hospital San José Renovado",
             "Avenida Principal, Manizales",
@@ -53,7 +54,7 @@ public class HospitalApp{
             gerente
         );
 
-        // Mostrar información actualizada
+        // se hace el system para mostrar información actualizada
         System.out.println("\nInformación actualizada del hospital:");
         hospital.mostrarInformacion();
     }

@@ -27,6 +27,23 @@ public class Localizacion {
     }
     
     /*
+    Se hace el metodo actualizarCoordenadas para actualizar latitud y longitud
+    */
+    
+    public void actualizarCoordenadas(double latitud,double longitud){
+         this.latitud = latitud;
+         this.longitud = longitud;
+        System.out.println("Coordenadas actualizadas: Latitud = " + latitud + ", Longitud = " + longitud);
+    }
+    
+    /*
+    se hace el metodo obtener ubicacion en metodo string
+    */
+    
+    public String obtenerUbicacion(){
+       return "Ubicación: Latitud = " + latitud + ", Longitud = " + longitud;}
+    
+    /*
     se hacen metodos getter and setters para dichos atributos
     */
 
