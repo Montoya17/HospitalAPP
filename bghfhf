@@ -1,0 +1,132 @@
+[33mcommit 609ec39cb773e2c5bd8faf3262052512b551bf95[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: 196d639 847a5a3
+Author: Juan diego Montoya <solismontoya67@mail.com>
+Date:   Wed Apr 2 12:07:02 2025 -0500
+
+    Se hace los metodos correspondientes de la clase localizacion
+
+[33mcommit 196d639d77195224c082cff50d6776ce94da0e98[m
+Author: Juan diego Montoya <solismontoya67@mail.com>
+Date:   Wed Apr 2 11:23:00 2025 -0500
+
+    Guardar los cambios que hizo aleja en su pc
+
+[33mcommit 847a5a3eeff87f5344612d205c525c52d0871beb[m
+Author: Aleja1611 <alejitamarinoso@gmaiil.com>
+Date:   Tue Apr 1 23:12:21 2025 -0500
+
+    Se hace la clase InventarioFarmacia
+
+[33mcommit 38e070e2af1e626ab1354faf1fa77bb71b83a733[m
+Author: Aleja1611 <alejitamarinoso@gmaiil.com>
+Date:   Tue Apr 1 23:02:00 2025 -0500
+
+    Se hace la clase Medicamento
+
+[33mcommit ffc9c60895f3f237b634cb82d8437d290a0eb225[m
+Author: Aleja1611 <alejitamarinoso@gmaiil.com>
+Date:   Tue Apr 1 22:52:37 2025 -0500
+
+    Se hace la clase MedicamentoMarc
+
+[33mcommit 0ad6ab58c3721b6782d135811006fb84988d3d48[m
+Author: Aleja1611 <alejitamarinoso@gmaiil.com>
+Date:   Tue Apr 1 22:45:53 2025 -0500
+
+    Se hace la clase MedicamentoGenerico
+
+[33mcommit 4221609e6b7120558315b0ace2c4d407cb94e3c0[m
+Author: Aleja1611 <alejitamarinoso@gmaiil.com>
+Date:   Tue Apr 1 22:38:56 2025 -0500
+
+    Venta
+
+[33mcommit b78691aa2506dc8d2731f1c72a60ce9bc1293108[m
+Author: Aleja1611 <alejitamarinoso@gmaiil.com>
+Date:   Tue Apr 1 22:28:51 2025 -0500
+
+    Medicina
+
+[33mcommit 480c3a3f16d2a2d32d3cf98810b3b408c64fdea8[m
+Author: Aleja1611 <alejitamarinoso@gmaiil.com>
+Date:   Tue Apr 1 22:19:51 2025 -0500
+
+    commit local
+
+[33mcommit b3745410a0329dc14ca66dc45a5923a793d207c4[m
+Author: Aleja1611 <alejitamarinoso@gmaiil.com>
+Date:   Tue Apr 1 22:12:24 2025 -0500
+
+    se hace la clase enfermedad
+
+[33mcommit 9e8ecc8a0f8d719500901f62a60ac4c3f3d8cfcd[m
+Author: Aleja1611 <alejitamarinoso@gmaiil.com>
+Date:   Tue Apr 1 21:40:32 2025 -0500
+
+    se hace la clase cita
+
+[33mcommit 5f155197aef228996f7aef3628edf62ef4c764b4[m
+Author: Aleja1611 <alejitamarinoso@gmaiil.com>
+Date:   Tue Apr 1 21:16:17 2025 -0500
+
+    se hace la clase paciente
+
+[33mcommit b3e3a38725b4370ceea3ffade79673d798c87b12[m
+Author: Juan diego Montoya <solismontoya67@mail.com>
+Date:   Tue Apr 1 11:18:27 2025 -0500
+
+    Se crean los metodos editar y mostrar informacion en la clae hospital
+
+[33mcommit d84af0d848afb5d8ce679ea1344f89f0f311fd2c[m
+Author: Juan diego Montoya <solismontoya67@mail.com>
+Date:   Mon Mar 31 14:40:51 2025 -0500
+
+    Se hace la clase Nomina  con sus respectivos atributos
+
+[33mcommit 8caf92b839035ca09d3f0f57e9ab6dcacb18c092[m
+Author: Juan diego Montoya <solismontoya67@mail.com>
+Date:   Mon Mar 31 14:33:08 2025 -0500
+
+    Se hace la clase EmpleadoSalud  con sus respectivos atributos
+
+[33mcommit 5827cda28ebb55441a5ae2748bd4fd5030ecbf73[m
+Author: Juan diego Montoya <solismontoya67@mail.com>
+Date:   Mon Mar 31 14:26:11 2025 -0500
+
+    Se hace la clase EmpleadoOperativo  con sus respectivos atributos
+
+[33mcommit 8b85bd5d06649aca875649b0b640528b89e8dac9[m
+Author: Juan diego Montoya <solismontoya67@mail.com>
+Date:   Mon Mar 31 14:20:33 2025 -0500
+
+    Se hace la clase Empleado  con sus respectivos atributos
+
+[33mcommit 2d656d492e0be0f67885d500c33b28d4aba29770[m
+Author: Juan diego Montoya <solismontoya67@mail.com>
+Date:   Mon Mar 31 13:32:11 2025 -0500
+
+    Se hace la clase Reporte  con sus respectivos atributos
+
+[33mcommit a78b59964bb4f44d4d774356bacf6f7077ad6233[m
+Author: Juan diego Montoya <solismontoya67@mail.com>
+Date:   Mon Mar 31 13:07:13 2025 -0500
+
+    Se hace la clase Gerente con sus respectivos atributos
+
+[33mcommit 3ad77548dfea442becd64a9e6fa9216a75aa88f2[m
+Author: Juan diego Montoya <solismontoya67@mail.com>
+Date:   Mon Mar 31 12:53:25 2025 -0500
+
+    Se hace la clase latitud con sus respectivos atributos
+
+[33mcommit fd3479f0e406c30e413fee608cfc74aee998ba6a[m
+Author: Juan diego Montoya <solismontoya67@mail.com>
+Date:   Mon Mar 31 12:45:40 2025 -0500
+
+    Se hace la clase Hospital con sus respectivos  atributos
+
+[33mcommit f5f83e3fe56a62efc2eced7a3fce876af774709b[m
+Author: Juan diego Montoya <solismontoya67@mail.com>
+Date:   Mon Mar 31 12:06:16 2025 -0500
+
+    First commit

@@ -39,6 +39,19 @@ public class Cita {
         this.fecha = fecha;
         this.valor = valor;
     }
+    
+    /*
+    se hace el metodo registrar cita para que el paciente la pueda registrar
+    */
+    
+    public void registarCita(){
+        System.out.println("La cita se registro exitosamente");
+        System.out.println("Paciente:"+paciente.getNombre());
+        System.out.println("Medico:"+medico.getNombre()+"Especialidad"+medico.getEspecialidad());
+        System.out.println("Fecha:"+fecha);
+        System.out.println("Valor:"+valor);}
+    
+    
      /*
     Se crea el getter and setter
     */
