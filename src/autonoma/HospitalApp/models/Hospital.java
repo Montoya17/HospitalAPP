@@ -86,6 +86,10 @@ public class Hospital  {
       /*
     se hace el metodo de editar la informacion del hospital
     */
+
+    public Hospital(String hospital_San_José_St_Bonaventure, String calle_123_Manizales, String e2r3, String logopng, int i, int i0, String string, double d, double d0, Gerente gerente) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     public void editarInformacion(String nombre, String direccion, int telefono, String logo, double presupuesto,double metaVentasAnual,
         Date fechaFundacion, boolean estado, double latitud, double longitud, Gerente gerente){
@@ -221,6 +225,10 @@ public class Hospital  {
 
     public void setGerente(Gerente gerente) {
         this.gerente = gerente;
+    }
+
+    public void editarInformacion(String hospital_San_José_Renovado, String avenida_Principal_Manizales, String string, String nuevo_logopng, int i, int i0, String string0, boolean b, double d, double d0, Gerente gerente) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
  
