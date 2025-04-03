@@ -5,12 +5,13 @@
 package autonoma.HospitalApp.models;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * se crea la clase  Nomina
  * @author solis
  */
-public class Nomina {
+public class Nomina   {
     
     /*
     el atributo id, hace refencia al id de la nomina
@@ -23,24 +24,123 @@ public class Nomina {
     /*
     el atributo totalsalarios, hace refencia al total de salarios que tiene el empleado
     */
-    private double totalsalarios;
+    private double totalSalarios;
+    /*
+    se hace la clase estatica presupuestoHospital, hace referenccia al presupuesto inical del hospital
+    */
+    private static double presupuestoHospital = 1000000;
+    /*
+    se hace la clase contardor nominas para saber cuantas nominas a pagado el hspital
+    */
+    private static int contadorNominas = 1;
     
+    private static boolean estadoActivo = true;
+   
     /*
     se hace el metodo constructor para los atributos mencionados 
     
     */
 
-    public Nomina(int id, Date fecha, double totalsalarios) {
-        this.id = id;
-        this.fecha = fecha;
-        this.totalsalarios = totalsalarios;
+    public Nomina(int id, Date fecha, double totalSalarios) {
+        this.id = contadorNominas++;
+        this.fecha = new Date();
+        this.totalSalarios = 0;
     }
+
+    private Nomina(Date fecha, double total) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+        
+    
+    /*
+    se hace el metodo generar nomina, para generar nomina
+    */
+    
+        public void generarNomina(List<Empleado> empleados) {
+        if (!estadoActivo) {
+            System.out.println("No se puede generar nómina. El hospital está en quiebra.");
+            return;
+        }
+        
+        // aqui calculamos el total de salarios del empleado que solicita nomina
+        double total = totalSalarios(empleados);
+        /*
+        aqui mandamos diferentes mensajes cuand el hospital no tenga prsupuesto o este en quiebra
+        */
+        if (total > presupuestoHospital){
+            System.out.println("El presupuesto del hospital no es !SUFICIENTE¡ para pagar esta nomina");
+            System.out.println("Presupuesto actual:"+ presupuestoHospital);
+            System.out.println("total de nomina" + total);
+            
+            /*
+           si estadoactivo es false nos dia que el hospital esta en quiebra
+            */
+            estadoActivo = false ;
+                System.out.println("El hospital a entrado en estado de quiebra");
+                
+        }
+        
+        /*
+        si la nomina se hace correctamente descontamos del presupuesto del hospital 
+        */
+        
+        presupuestoHospital -= total;
+        
+        /*
+        creamos la nomina y la almacenamos con su respectiva fecha
+        */
+        
+        Nomina nuevaNomina = new Nomina(new Date(), total);
+          almacenarNomina(nuevaNomina);
+          
+        System.out.println("Nómina generada exitosamente:");
+        System.out.println("ID: " + nuevaNomina.getId());
+        System.out.println("Fecha: " + nuevaNomina.getFecha());
+        System.out.println("Total: " + nuevaNomina.getTotalsalarios());
+        System.out.println("Presupuesto restante: " + presupuestoHospital);
+        
+        
+        }
+       
+     /*
+        se hace el metodo registrarpatrocinio
+     registramos patrocionio si el hospital se encuentra en quiebra
+        */
+      
+        public static void registrarPatrocinio(double monto){
+            if (estadoActivo);
+             System.out.println("El hospotal esta bien de fonod0ss, no es necesario un patrocinio");
+             
+            if (monto > Math.abs(presupuestoHospital)) {
+            presupuestoHospital += monto;
+            estadoActivo = true;
+            System.out.println("Gracias por tu patrocinio, registrado exitosamente");
+            System.out.println("Nuevo presupuesto: " + presupuestoHospital);
+            System.out.println("El hospital se encuentra activo nuevamente");
+        } else {
+            System.out.println("El monto del patrocinio no cubre la deuda.");
+            System.out.println("Deuda actual: " + Math.abs(presupuestoHospital));
+            System.out.println("Monto recibido: " + monto);
+        }
+        
+
+        
+        
+        
+        
+       
+
+        
+
+          
+    
+
     
     /*
     se hacen los getters y setters de los atributos mencionados
     */
 
-    public int getId() {
+     public int getId() {
         return id;
     }
 
@@ -57,11 +157,53 @@ public class Nomina {
     }
 
     public double getTotalsalarios() {
-        return totalsalarios;
+        return totalSalarios;
     }
 
-    public void setTotalsalarios(double totalsalarios) {
-        this.totalsalarios = totalsalarios;
+    public void setTotalsalarios(double totalSalarios) {
+        this.totalSalarios = totalSalarios;
+    }
+
+    
+
+    public double getTotalSalarios() {
+        return totalSalarios;
+    }
+
+    public void setTotalSalarios(double totalSalarios) {
+        this.totalSalarios = totalSalarios;
+    }
+
+    public static double getPresupuestoHospital() {
+        return presupuestoHospital;
+    }
+
+    public static void setPresupuestoHospital(double presupuestoHospital) {
+        Nomina.presupuestoHospital = presupuestoHospital;
+    }
+
+    public static int getContadorNominas() {
+        return contadorNominas;
+    }
+
+    public static void setContadorNominas(int contadorNominas) {
+        Nomina.contadorNominas = contadorNominas;
+    }
+
+    public static boolean isEstadoActivo() {
+        return estadoActivo;
+    }
+
+    public static void setEstadoActivo(boolean estadoActivo) {
+        Nomina.estadoActivo = estadoActivo;
+    }
+
+    private void almacenarNomina(Nomina nuevaNomina) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private double totalSalarios(List<Empleado> empleados) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
     

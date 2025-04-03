@@ -230,6 +230,10 @@ public class Hospital  {
     public void editarInformacion(String hospital_San_José_Renovado, String avenida_Principal_Manizales, String string, String nuevo_logopng, int i, int i0, String string0, boolean b, double d, double d0, Gerente gerente) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    boolean enQuiebra() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
  
 
