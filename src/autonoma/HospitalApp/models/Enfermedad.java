@@ -10,23 +10,35 @@ package autonoma.HospitalApp.models;
  * @Since 012/04/2025
  */
 public class Enfermedad {
+    
+            
+       
     /*
     El atributo enfermedad, se refiere a la enfermedad del paciente
     */
-    private String enfermedad;
+    private String nombre;
    /*
     El atributo descripcion, hace referencia a la descripcion de la enfermedad 
     */
     private String descripcion;
+    
+    /*
+    se crea el metodo de obtener descripcion de la enfermerdad
+    */
+    public void obtenerDescripcion() {
+        System.out.println("Enfermedad: " + nombre);
+        System.out.println("Descripción: " + descripcion);
+    }
+    
     /* 
     Se crea el getter y setter
     */
     public String getEnfermedad() {
-        return enfermedad;
+        return nombre;
     }
 
     public void setEnfermedad(String enfermedad) {
-        this.enfermedad = enfermedad;
+        this.nombre = enfermedad;
     }
 
     public String getDescripcion() {
@@ -40,7 +52,7 @@ public class Enfermedad {
     Se crea el metodo constructor para dichos atributos
     */
     public Enfermedad(String enfermedad, String descripcion) {
-        this.enfermedad = enfermedad;
+        this.nombre = enfermedad;
         this.descripcion = descripcion;
         
     }

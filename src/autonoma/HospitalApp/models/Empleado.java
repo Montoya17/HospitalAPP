@@ -26,7 +26,7 @@ public abstract  class Empleado {
     /*
     el atributo salario, hace refencial al salario del empleado
     */
-    private double salarioBase;
+    double salarioBase;
 
     /* 
     se crea el metodo constructor con los respectivos atributos
