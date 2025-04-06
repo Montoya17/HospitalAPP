@@ -27,11 +27,23 @@ public class HospitalApp{
             "calle 33, Manizales",
             "313242355",
             "logo.png",
-            5000000, // este es el presupuesto inicial
-            10000000, // Meta de ventas anual
+            /*
+              Presupuesto inical
+                */
+            5000000, 
+            /*
+                meta de ventas
+                */
+            10000000, 
             "1990-05-15",
-            5.0703, // esta es la Latitud
-            75.5138, // esta es Longitud
+                /*
+                esta es la latitud
+                */
+            5.0703, 
+            /*
+                esta es la longitud
+                */
+            75.5138, 
             gerente
         );
 

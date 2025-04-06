@@ -122,20 +122,11 @@ public class Nomina   {
             System.out.println("Deuda actual: " + Math.abs(presupuestoHospital));
             System.out.println("Monto recibido: " + monto);
         }
+ 
         
+        }
 
-        
-        
-        
-        
-       
-
-        
-
-          
-    
-
-    
+ 
     /*
     se hacen los getters y setters de los atributos mencionados
     */

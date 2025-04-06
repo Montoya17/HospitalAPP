@@ -8,23 +8,33 @@ package autonoma.HospitalApp.models;
  *@Since 01/04/2025
  * @author Alejandra
  */
-public class MedicamentoMarca {
+public final class MedicamentoMarca extends Medicamento  {
     /*
     El atributo fabricante, hace referencia a el fabricante de la Marca del 
     medicamento
     */
     private String fabricante;
-    /*
-    El atributo precioVenta,se refiere al precio de la venta del medicamento
-    */
-    private Double precioVenta;
+    
+
 /*
     Se crea el metodo constructor para dichos atributos
     */
-    public MedicamentoMarca(String fabricante, Double precioVenta) {
+
+    public MedicamentoMarca(String fabricante, String nombre, String descripcion, Double costo, double precioVenta) {
+        super(nombre, descripcion, costo, precioVenta);
         this.fabricante = fabricante;
-        this.precioVenta = precioVenta;
+        calcularPrecioVenta();
     }
+    
+     @Override
+    public void calcularPrecioVenta() {
+        this.precioVenta = this.costo + (this.costo * 0.25);
+    }
+    
+
+  
+
+    
     /*
     Se crea el getter y el setter 
     */

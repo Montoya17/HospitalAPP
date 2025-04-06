@@ -4,6 +4,7 @@
  */
 package autonoma.HospitalApp.models;
 
+
 import java.util.ArrayList;
 
 /**
@@ -61,13 +62,38 @@ public class Paciente {
         this.correo = correo;
         this.telefono = telefono;
         this.estado = estado;
-        this.enfermedades = enfermedades;
-        this.medicinas = medicinas;
- 
-        
+        this.enfermedades =  new ArrayList<>();
+        this.medicinas = new ArrayList<>();
         
     }
-
+    /*
+    El metodo curar enfermerdad, nos perimire verificar si el usuario tiene  ese enfermerdad
+    */
+    public void curarEnfermedad(Enfermedad enfermedad,Medicamento medicina){
+        
+        if (enfermedades.contains(enfermedad))
+            System.out.println("El paciente no tiene la enfermerdad"+ enfermedad.getEnfermedad());
+        this.estado = estado
+        return ;
+        /*
+        aqui verificamos si la medicina ya fue recetada
+        */
+        if (medicinas.contains(medicina)){
+            System.out.println("La medicina "+medicina.getNombre()+"ya fue recetado");
+            this.estado = estado;
+            
+    }
+        enfermedades.remove(enfermedad);
+        medicinas.add(medicina);
+        
+        if (enfermedades.isEmpty()) {
+        this.estado = estado
+    }
+    }
+     
+    
+    
+   
     /*
         Se crea el metodo getter and setters
     */

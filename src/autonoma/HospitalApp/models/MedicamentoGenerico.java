@@ -8,7 +8,7 @@ package autonoma.HospitalApp.models;
  *@Since 01/04/2025
  * @author Alejandra
  */
-public class MedicamentoGenerico {
+public class MedicamentoGenerico extends Medicamento {
     /*
     El atributo precioVenta, se refiere al precio del MedicamentoGenerico
     */
@@ -16,17 +16,36 @@ public class MedicamentoGenerico {
     /*
     Se crea metodo constructor para el atributo
     */
-    public MedicamentoGenerico() {
+
+    public MedicamentoGenerico(String nombre, String descripcion, Double costo, double precioVenta) {
+        super(nombre, descripcion, costo, precioVenta);
+        this.precioVenta = precioVenta;
+        calcularPrecioVenta();
     }
+    
+    @Override
+    public void calcularPrecioVenta() {
+        this.precioVenta = this.costo + (this.costo * 0.10);
+    }
+    
 /*
     Se crea el getter y setter 
     */
+
     public Double getPrecioVenta() {
         return precioVenta;
     }
 
     public void setPrecioVenta(Double precioVenta) {
         this.precioVenta = precioVenta;
+    }
+
+    public Double getCosto() {
+        return costo;
+    }
+
+    public void setCosto(Double costo) {
+        this.costo = costo;
     }
     
 }

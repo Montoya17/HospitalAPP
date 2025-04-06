@@ -20,22 +20,33 @@ public abstract class Medicamento {
     /*
     El atributo costo, se refiere al costo del medicamento
     */
-    private Double costo; 
+    public Double costo; 
     /*
     El atributo precioVenta, se refiere al Precio de la venta del medicamento
     */
-    private Double precioVenta;
+    double precioVenta;
     
     /*
     Se crea metodo constructor para dichos atributos
     */
 
-    public Medicamento(String nombre, String descripcion, Double costo, Double precioVenta) {
+    public Medicamento(String nombre, String descripcion, Double costo, double precioVenta) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.costo = costo;
         this.precioVenta = precioVenta;
         
+    }
+    
+    public abstract void calcularPrecioVenta();
+    /*
+    SE crea el metodo editarInformacion para editar la info del medicamento
+    */
+
+    public void editarInformacion(String nombre, String descripcion, double costo) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.costo = costo;
     }
 /*
     Se crea el getter y el setter 
