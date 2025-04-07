@@ -50,7 +50,7 @@ public class Hospital  {
     /*
     el atributo estado se refiere al estado de lhospital(si esta en quiebra o no)
     */
-    private boolean enQuiebra;
+    private String estado;
     
     /*
     el atributo latitud, se refiere a la latitud del hospital
@@ -58,6 +58,7 @@ public class Hospital  {
     private double latitud;
     
     private double longitud;
+    
  
    
     /*se refiere al gerente que tiene el hospital
@@ -69,30 +70,31 @@ public class Hospital  {
     Se crean los metodos constructores de dichos atributos
     */
 
-    public Hospital(String nombre, String direccion, int telefono, String logo, double presupuesto, double metaVentasAnual, Date fechaFundacion, boolean enQuiebra, double latitud, double longitud, Gerente gerente, Gerente Gerente) {
+    public Hospital(String nombre, String direccion, int telefono, String logo, double presupuesto,double presupuestoInical,
+            double metaVentasAnual, Date fechaFundacion, String estado, double latitud, double longitud, Gerente gerente, Gerente Gerente) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
         this.logo = logo;
-        this.presupuesto = presupuesto;
+        this.presupuesto = presupuestoInical;
         this.metaVentasAnual = metaVentasAnual;
         this.fechaFundacion = fechaFundacion;
-        this.enQuiebra = enQuiebra;
+        this.estado = "Activo";
         this.latitud = latitud;
         this.longitud = longitud;
         this.gerente = gerente;
         this.Gerente = Gerente;
     }
-      /*
-    se hace el metodo de editar la informacion del hospital
-    */
+     
 
     public Hospital(String hospital_San_José_St_Bonaventure, String calle_123_Manizales, String e2r3, String logopng, int i, int i0, String string, double d, double d0, Gerente gerente) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+     /*
+    se hace el metodo de editar la informacion del hospital
+    */
     public void editarInformacion(String nombre, String direccion, int telefono, String logo, double presupuesto,double metaVentasAnual,
-        Date fechaFundacion, boolean estado, double latitud, double longitud, Gerente gerente){
+        Date fechaFundacion, String estado, double latitud, double longitud, Gerente gerente){
       this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
@@ -100,7 +102,7 @@ public class Hospital  {
         this.presupuesto = presupuesto;
         this.metaVentasAnual = metaVentasAnual;
         this.fechaFundacion = fechaFundacion;
-        this.enQuiebra = estado;
+        this.estado = "Activo";
         this.latitud = latitud;
         this.longitud = longitud;
         this.gerente = gerente;
@@ -117,12 +119,51 @@ public class Hospital  {
         System.out.println("Presupuesto: " + presupuesto);
         System.out.println("Meta de ventas anual: " + metaVentasAnual);
         System.out.println("Fecha de fundación: " + fechaFundacion);
-        System.out.println("Estado: " + (enQuiebra ? "En quiebra" : "Activo"));
+        System.out.println("Estado: " + (estado ? "En quiebra" : "Activo"));
         System.out.println("Localización: Latitud " + latitud + ", Longitud " + longitud);
         System.out.println("Gerente: " + gerente.getNombre());}
     
+    
+    /**
+     *  se crea el metodo Reducir presupuesto
+     *this.presupuesto <0 se refiere Si el presupuesto queda negativo, cambia a en quiebra
+     * @param monto
+     */
 
-   
+   public void reducirPresupuesto(double monto) {
+    this.presupuesto -= monto;
+      if (this.presupuesto < 0) {
+        this.presupuesto = Math.abs(this.presupuesto); 
+        this.estado = "En quiebra";
+        System.out.println("¡El hospital ha entrado en quiebra!");
+    }
+          }
+    
+    /**
+     * se crea la clase aumentarPresupuesto, para el hospital
+     * @param monto 
+     */
+    public void aumentarPresupuesto(double monto) {
+        this.presupuesto += monto;
+        System.out.println("Presupuesto aaumento Correctamente.  Nuevo presupuesto: $" + this.presupuesto);
+    }
+    
+      /**
+       * 
+       * @param valor 
+       * se hace el metodo regiustarPatrocinio, si el hospital se encuentra en quiebra
+       */
+     public void registrarPatrocinio(double valor) {
+        if (estado.equals("En quiebra") && valor >= Math.abs(presupuesto)) {
+            this.presupuesto += valor;
+            cambiarEstado("Activo");
+            System.out.println("¡Patrocinio registrado exitosamente! El hospital ha salido de quiebra.");
+        } else {
+            System.out.println(" El patrocinio no es suficiente para salir de la quiebra, o el hospital no está en quiebra.");
+        }
+    }
+    
+    
 
     
     
@@ -185,22 +226,17 @@ public class Hospital  {
         this.fechaFundacion = fechaFundacion;
     }
 
-    public boolean isEstado() {
-        return enQuiebra;
+    public String getEstado() {
+        return estado;
     }
 
-    public void setEstado(boolean enQuiebra) {
-        this.enQuiebra = enQuiebra;
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
+    
+    
 
-    public boolean isEnQuiebra() {
-        return enQuiebra;
-    }
-
-    public void setEnQuiebra(boolean enQuiebra) {
-        this.enQuiebra = enQuiebra;
-    }
-
+   
     public double getLatitud() {
         return latitud;
     }
@@ -232,6 +268,10 @@ public class Hospital  {
     }
 
     boolean enQuiebra() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void cambiarEstado(String activo) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     

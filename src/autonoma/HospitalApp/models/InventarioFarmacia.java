@@ -24,17 +24,77 @@ public class InventarioFarmacia {
     /*
     El atributo Medicina hace referencia a las medicinas que tiene la farmacia
     */
-    private ArrayList <Medicina> medicinas;
+    private ArrayList <Medicamento> medicamentos;
+    
+    /**
+     * El atributo hospital hace referencia al hospital, para que podamos aplicar metodos que implica a lhospital como reducir presupuesto
+     */
+    private Hospital hospital;
     
     /*
     Se crea el metodo constructor
     */
 
-    public InventarioFarmacia(int codigo, Date añoActualizacion, ArrayList<Medicina> medicinas) {
+    public InventarioFarmacia(int codigo, Date añoActualizacion, ArrayList<Medicamento> medicamentos) {
         this.codigo = codigo;
         this.añoActualizacion = añoActualizacion;
-        this.medicinas = medicinas;
+        this.medicamentos = medicamentos;
+
     }
+    /**
+     * 
+     * @param medicamento
+     * 
+     * @return 
+     * 
+     * se crea el metodo booleano agregar medicamento y si no no se podra comprar el medicamento 
+     */ 
+     public boolean agregarMedicamento(Medicamento medicamento) {
+        double costo = medicamento.getCosto();
+        if (hospital.getPresupuesto() >= costo) {
+            medicamentos.add(medicamento);
+            hospital.reducirPresupuesto(costo);
+            return true;
+        } else {
+            hospital.setEstado("en quiebra");
+            System.out.println("No se puede comprar medicamentos. Hospital en quiebra.");
+            return false;
+        }
+    }
+       /**
+        * creamos el metodo listaMedicamentos para ver los medicamentos del hospital
+        */
+     public void listarMedicamentos() {
+        for (Medicamento m : medicamentos) {
+            System.out.println(m);
+        }
+    }
+     /**
+      * se crea el metodo booleano venderMedicamento para poder venderlo al cliente, si no se encuentra el medicamento se hace el else 
+      * @param nombre
+      * @return 
+      */
+     public boolean venderMedicamento(String nombre) {
+        for (Medicamento m : medicamentos) {
+            if (m.getNombre().equalsIgnoreCase(nombre)) {
+                medicamentos.remove(m);
+                hospital.aumentarPresupuesto(m.getPrecioVenta());
+                hospital.registrarVenta(m.getPrecioVenta());
+                return true;
+            }
+        }
+        System.out.println("Medicamento no encontrado");
+        return false;
+    }
+
+    
+    
+    
+    
+        
+    
+
+    
 /*
     Se crea el getter y erl setter
     */
@@ -54,11 +114,13 @@ public class InventarioFarmacia {
         this.añoActualizacion = añoActualizacion;
     }
 
-    public ArrayList<Medicina> getMedicinas() {
-        return medicinas;
+    public ArrayList<Medicamento> getMedicamentos() {
+        return medicamentos;
     }
 
-    public void setMedicinas(ArrayList<Medicina> medicinas) {
-        this.medicinas = medicinas;
+    public void setMedicamentos(ArrayList<Medicamento> medicamentos) {
+        this.medicamentos = medicamentos;
     }
+
+   
 }

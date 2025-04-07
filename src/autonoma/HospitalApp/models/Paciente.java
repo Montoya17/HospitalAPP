@@ -67,30 +67,9 @@ public class Paciente {
         
     }
     /*
-    El metodo curar enfermerdad, nos perimire verificar si el usuario tiene  ese enfermerdad
+    El metodo curar enfermerdad, nos perimire verificar si el usuario tiene  esa enfermerdad
     */
-    public void curarEnfermedad(Enfermedad enfermedad,Medicamento medicina){
-        
-        if (enfermedades.contains(enfermedad))
-            System.out.println("El paciente no tiene la enfermerdad"+ enfermedad.getEnfermedad());
-        this.estado = estado
-        return ;
-        /*
-        aqui verificamos si la medicina ya fue recetada
-        */
-        if (medicinas.contains(medicina)){
-            System.out.println("La medicina "+medicina.getNombre()+"ya fue recetado");
-            this.estado = estado;
-            
-    }
-        enfermedades.remove(enfermedad);
-        medicinas.add(medicina);
-        
-        if (enfermedades.isEmpty()) {
-        this.estado = estado
-    }
-    }
-     
+
     
     
    

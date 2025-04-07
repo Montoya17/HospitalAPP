@@ -102,30 +102,9 @@ public class Nomina   {
         
         }
        
-     /*
-        se hace el metodo registrarpatrocinio
-     registramos patrocionio si el hospital se encuentra en quiebra
-        */
+  
       
-        public static void registrarPatrocinio(double monto){
-            if (estadoActivo);
-             System.out.println("El hospotal esta bien de fonod0ss, no es necesario un patrocinio");
-             
-            if (monto > Math.abs(presupuestoHospital)) {
-            presupuestoHospital += monto;
-            estadoActivo = true;
-            System.out.println("Gracias por tu patrocinio, registrado exitosamente");
-            System.out.println("Nuevo presupuesto: " + presupuestoHospital);
-            System.out.println("El hospital se encuentra activo nuevamente");
-        } else {
-            System.out.println("El monto del patrocinio no cubre la deuda.");
-            System.out.println("Deuda actual: " + Math.abs(presupuestoHospital));
-            System.out.println("Monto recibido: " + monto);
-        }
- 
-        
-        }
-
+    
  
     /*
     se hacen los getters y setters de los atributos mencionados
