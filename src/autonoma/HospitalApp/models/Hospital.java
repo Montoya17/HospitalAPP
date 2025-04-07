@@ -4,7 +4,9 @@
  */
 package autonoma.HospitalApp.models;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  *  se crea la clase hospital 
@@ -65,6 +67,10 @@ public class Hospital  {
     */
     private Gerente gerente;
     private final Gerente Gerente;
+    /*
+    se listan los empleados del hospital para poder hacer algunos metodos 
+    */
+    private List<Empleado> empleados;
 
     /*
     Se crean los metodos constructores de dichos atributos
@@ -106,6 +112,7 @@ public class Hospital  {
         this.latitud = latitud;
         this.longitud = longitud;
         this.gerente = gerente;
+        this.empleados = new ArrayList<>();
         System.out.println("La informacion del hospital fue cambiada correctamente.");}
     
     
@@ -163,7 +170,22 @@ public class Hospital  {
         }
     }
     
-    
+     /**
+      * se hace el metodo agregar empleado para agregar empleado al hospital 
+      * @param empleado 
+      */
+     public void agregarEmpleado(Empleado empleado) {
+        empleados.add(empleado);
+        System.out.println(" El empleado se agrego correctamente");
+    }
+    /**
+     *se crea el metodo mostarEmpleados, para que podamos ver los empleados activos
+     */
+      public void mostarEmpleados() {
+        for (Empleado e : empleados) {
+            System.out.println(e.obtenerInformacion());
+        }
+    }
 
     
     
@@ -272,6 +294,10 @@ public class Hospital  {
     }
 
     private void cambiarEstado(String activo) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    void registrarVenta(Double precioVenta) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     

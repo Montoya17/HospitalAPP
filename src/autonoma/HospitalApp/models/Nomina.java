@@ -101,11 +101,7 @@ public class Nomina   {
         
         
         }
-       
-  
-      
-    
- 
+
     /*
     se hacen los getters y setters de los atributos mencionados
     */

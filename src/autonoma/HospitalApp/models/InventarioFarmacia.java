@@ -87,14 +87,7 @@ public class InventarioFarmacia {
         return false;
     }
 
-    
-    
-    
-    
-        
-    
 
-    
 /*
     Se crea el getter y erl setter
     */

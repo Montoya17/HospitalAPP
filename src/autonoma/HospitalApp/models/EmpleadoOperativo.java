@@ -36,11 +36,5 @@ public class EmpleadoOperativo extends Empleado {
     public double calcularSalario() {
         return salarioBase * 1.2;
     }
-    
-    
 
-
-    
-    
-    
 }

@@ -25,6 +25,26 @@ public class Venta {
         this.valorTotal = valorTotal;
            
     }
+    /**
+     * se crea el metodo registrarVenta, apra registarla 
+     * @param medicamento
+     * @param cantidad 
+     */
+     public void registrarVenta(Medicamento medicamento, int cantidad) {
+        if (cantidad <= 0) {
+            System.out.println("La cantidad de productos no pueden ser 0.");
+            return;
+        }
+
+        this.valorTotal = medicamento.getPrecioVenta() * cantidad;
+        System.out.println("Venta registrada exitosamente. Valor total: $" + valorTotal);
+    }
+     /*
+     se crea el metodo obtenerDetalles para obtener los detalles de la venta 
+     */
+     public String obtenerDetalles() {
+        return "ID Venta: " + id + ", Valor Total: $" + valorTotal;
+    }
 /*
     Se crea el getter y el setter
     */
