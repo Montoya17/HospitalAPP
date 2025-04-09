@@ -1,0 +1,14 @@
+Nombre; Hospital San Jose St. Bonaventure
+Dirección; 2425 Samaritan Dr, San Jose, CA 95124, Estados Unidos
+Teléfono; +1 408-559-2011
+Logo; logo.png
+Presupuesto;1000000
+MetaVentasAnual; 0
+FechaFundacion; 1965
+Latitud; 37.25157313140872
+Longitud; -121.94667417922749
+Estado; Activo
+GerenteNombre; Aaron Glassman
+GerenteDocumento; 84.941.564
+GerenteEdad; 69
+GerenteCarrera; Neurocirujano
