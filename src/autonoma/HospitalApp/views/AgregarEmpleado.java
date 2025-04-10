@@ -23,6 +23,7 @@ public class AgregarEmpleado extends javax.swing.JDialog {
     public AgregarEmpleado(java.awt.Frame parent, boolean modal, Hospital hospital, VentanaPrincipal ventanaPrincipal) {
         super(parent, modal);
         initComponents();
+        setResizable(false);
         this.setLocationRelativeTo(null);
         try {
             this.setIconImage(new ImageIcon(getClass().getResource("/autonoma/HospiatalApp/images/hospital.png")).getImage());
@@ -193,67 +194,11 @@ public class AgregarEmpleado extends javax.swing.JDialog {
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void brnAgregar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brnAgregar1ActionPerformed
-        String nombre = this.txtNombre.getText();
-        
-        try {
-            double id = Double.parseDouble(this.txtNumerodocumento.getText());
-        double edad = Double.parseDouble(this.txtEdad.getText());
-        double salariobase = Double.parseDouble(this.txtSalarioBase.getText());
-        
-        Empleado empleado = new Empleado(nombre,id,edad,salariobase);
-        if(this.hospital.agregarEmpleado(empleado)){
-             JOptionPane.showMessageDialog(this, "Empleado" +nombre+ "ha sido agregado exitosamente");
-             this.dispose();
-         }
-        } catch (NumberFormatException e) {
-        } JOptionPane.showMessageDialog(this, "Por faovr ingrese informacion valida");
-        this.txtEdad
-        
+ 
         
     }//GEN-LAST:event_brnAgregar1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AgregarEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AgregarEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AgregarEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AgregarEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                AgregarEmpleado dialog = new AgregarEmpleado(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton brnAgregar1;
     private javax.swing.JButton btnVolver;

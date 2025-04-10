@@ -126,7 +126,7 @@ public class Hospital  {
         System.out.println("Presupuesto: " + presupuesto);
         System.out.println("Meta de ventas anual: " + metaVentasAnual);
         System.out.println("Fecha de fundación: " + fechaFundacion);
-        System.out.println("Estado: " + (estado ? "En quiebra" : "Activo"));
+        
         System.out.println("Localización: Latitud " + latitud + ", Longitud " + longitud);
         System.out.println("Gerente: " + gerente.getNombre());}
     

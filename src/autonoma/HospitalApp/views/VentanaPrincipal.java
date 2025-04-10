@@ -6,7 +6,7 @@ package autonoma.HospitalApp.views;
 
 import autonoma.HospitalApp.models.Hospital;
 import java.awt.Color;
-import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 /**
@@ -20,11 +20,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
      */
     public VentanaPrincipal() {
         initComponents();
-        this.hospital = hospital;
+        setResizable(false);
+        this.setLocationRelativeTo(null);
+        try {
+             this.setIconImage(new ImageIcon(getClass().getResource("/autonoma/HospitalApp/Images/hospital.png")).getImage());
+        } catch (Exception e) {
+            
+        }
+        
     }
     
-    
-
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -54,6 +60,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnGestionHospital = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        btnPacientes = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,7 +76,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(234, Short.MAX_VALUE)
+                .addContainerGap(287, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(234, 234, 234))
         );
@@ -94,7 +103,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/HospitalApp/views/empleados.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/HospitalApp/Images/empleados.png"))); // NOI18N
 
         jLabel3.setText("Empleados");
 
@@ -102,19 +111,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnEmpleados.setLayout(btnEmpleadosLayout);
         btnEmpleadosLayout.setHorizontalGroup(
             btnEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnEmpleadosLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addContainerGap())
             .addGroup(btnEmpleadosLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE)
+                .addGroup(btnEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnEmpleadosLayout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnEmpleadosLayout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(22, 22, 22))))
         );
         btnEmpleadosLayout.setVerticalGroup(
             btnEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnEmpleadosLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(18, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
@@ -134,7 +144,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/HospitalApp/views/medicamentos.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/HospitalApp/Images/medicamentos.png"))); // NOI18N
 
         jLabel5.setText("  Medicamentos");
 
@@ -176,21 +186,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jLabel7.setText("     Inventario");
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/HospitalApp/views/inventario.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/HospitalApp/Images/inventario.png"))); // NOI18N
 
         javax.swing.GroupLayout btnInventarioLayout = new javax.swing.GroupLayout(btnInventario);
         btnInventario.setLayout(btnInventarioLayout);
         btnInventarioLayout.setHorizontalGroup(
             btnInventarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnInventarioLayout.createSequentialGroup()
-                .addGroup(btnInventarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(btnInventarioLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel7))
-                    .addGroup(btnInventarioLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel6)))
+                .addContainerGap()
+                .addComponent(jLabel6)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnInventarioLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addContainerGap())
         );
         btnInventarioLayout.setVerticalGroup(
             btnInventarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -215,7 +224,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/HospitalApp/views/ventas.png"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/HospitalApp/Images/ventas.png"))); // NOI18N
 
         jLabel9.setText("    Ventas");
 
@@ -258,27 +267,70 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jLabel11.setText("Gestion del hospital");
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/HospitalApp/views/hospital.png"))); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/HospitalApp/Images/hospital.png"))); // NOI18N
+        jLabel10.setMaximumSize(new java.awt.Dimension(100, 100));
+        jLabel10.setMinimumSize(new java.awt.Dimension(100, 100));
 
         javax.swing.GroupLayout btnGestionHospitalLayout = new javax.swing.GroupLayout(btnGestionHospital);
         btnGestionHospital.setLayout(btnGestionHospitalLayout);
         btnGestionHospitalLayout.setHorizontalGroup(
             btnGestionHospitalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnGestionHospitalLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(btnGestionHospitalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel11))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnGestionHospitalLayout.createSequentialGroup()
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addGroup(btnGestionHospitalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         btnGestionHospitalLayout.setVerticalGroup(
             btnGestionHospitalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnGestionHospitalLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
                 .addComponent(jLabel11)
                 .addGap(17, 17, 17))
+        );
+
+        btnPacientes.setBackground(new java.awt.Color(255, 255, 255));
+        btnPacientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnPacientesMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnPacientesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnPacientesMouseExited(evt);
+            }
+        });
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/HospitalApp/Images/pacientes.png"))); // NOI18N
+
+        jLabel12.setText("Gestion de pacientes");
+
+        javax.swing.GroupLayout btnPacientesLayout = new javax.swing.GroupLayout(btnPacientes);
+        btnPacientes.setLayout(btnPacientesLayout);
+        btnPacientesLayout.setHorizontalGroup(
+            btnPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnPacientesLayout.createSequentialGroup()
+                .addGap(0, 11, Short.MAX_VALUE)
+                .addGroup(btnPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnPacientesLayout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addGap(15, 15, 15))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnPacientesLayout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addContainerGap())))
+        );
+        btnPacientesLayout.setVerticalGroup(
+            btnPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnPacientesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel12)
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -286,9 +338,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addContainerGap()
                 .addComponent(btnEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnMedicamentos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnInventario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -296,33 +348,35 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addComponent(btnVentas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnGestionHospital, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnVentas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnGestionHospital, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnInventario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnMedicamentos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnInventario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnGestionHospital, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(176, Short.MAX_VALUE))
+                    .addComponent(btnVentas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 190, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -379,11 +433,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVentasMouseExited
 
     private void btnGestionHospitalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionHospitalMouseClicked
+       System.out.println("Gestion de hospital");
 
-
-        MostrarInformacion ventanaInformacion = new MostrarInformacion(this, true, this.hospital);
-
-        ventanaInformacion.setVisible(true);
         
     }//GEN-LAST:event_btnGestionHospitalMouseClicked
 
@@ -395,25 +446,41 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         this.mouseExited(btnGestionHospital);
     }//GEN-LAST:event_btnGestionHospitalMouseExited
 
+    private void btnPacientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPacientesMouseClicked
+        System.out.println("Gestion de Pacientes");
+    }//GEN-LAST:event_btnPacientesMouseClicked
+
+    private void btnPacientesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPacientesMouseEntered
+        this.mouseEntered(btnPacientes);
+    }//GEN-LAST:event_btnPacientesMouseEntered
+
+    private void btnPacientesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPacientesMouseExited
+        this.mouseExited(btnPacientes);
+    }//GEN-LAST:event_btnPacientesMouseExited
+
    private void mouseEntered(JPanel panel){
         panel.setBackground(new Color(165,255,222));
    }
    
    private void mouseExited(JPanel panel){
-        panel.setBackground(new Color (255,255,255));}
+        panel.setBackground(new Color (255,255,255));
+
+   }
+        
+        
    
-
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel btnEmpleados;
     private javax.swing.JPanel btnGestionHospital;
     private javax.swing.JPanel btnInventario;
     private javax.swing.JPanel btnMedicamentos;
+    private javax.swing.JPanel btnPacientes;
     private javax.swing.JPanel btnVentas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

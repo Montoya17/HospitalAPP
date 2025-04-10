@@ -4,22 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/solis/Desktop/POO/HospitalApp/src/autonoma/HospitalApp/main/HospitalApp.java</file>
-            <file>file:/C:/Users/solis/Desktop/POO/HospitalApp/src/autonoma/HospitalApp/models/Cita.java</file>
-            <file>file:/C:/Users/solis/Desktop/POO/HospitalApp/src/autonoma/HospitalApp/models/Enfermedad.java</file>
             <file>file:/C:/Users/solis/Desktop/POO/HospitalApp/src/autonoma/HospitalApp/views/AgregarEmpleado.java</file>
-            <file>file:/C:/Users/solis/Desktop/POO/HospitalApp/src/autonoma/HospitalApp/models/Hospital.java</file>
-            <file>file:/C:/Users/solis/Desktop/POO/HospitalApp/src/autonoma/HospitalApp/models/EmpleadoSalud.java</file>
-            <file>file:/C:/Users/solis/Desktop/POO/HospitalApp/src/autonoma/HospitalApp/models/Reporte.java</file>
-            <file>file:/C:/Users/solis/Desktop/POO/HospitalApp/src/autonoma/HospitalApp/models/Nomina.java</file>
-            <file>file:/C:/Users/solis/Desktop/POO/HospitalApp/src/autonoma/HospitalApp/models/Empleado.java</file>
-            <file>file:/C:/Users/solis/Desktop/POO/HospitalApp/src/autonoma/HospitalApp/models/EmpleadoOperativo.java</file>
-            <file>file:/C:/Users/solis/Desktop/POO/HospitalApp/src/autonoma/HospitalApp/models/Localizacion.java</file>
-            <file>file:/C:/Users/solis/Desktop/POO/HospitalApp/src/autonoma/HospitalApp/models/Gerente.java</file>
-            <file>file:/C:/Users/solis/Desktop/POO/HospitalApp/src/autonoma/HospitalApp/models/InventarioFarmacia.java</file>
+            <file>file:/C:/Users/solis/Desktop/POO/HospitalApp/src/autonoma/HospitalApp/views/ListaEmpleado.java</file>
             <file>file:/C:/Users/solis/Desktop/POO/HospitalApp/src/autonoma/HospitalApp/views/MostrarInformacion.java</file>
-            <file>file:/C:/Users/solis/Desktop/POO/HospitalApp/src/autonoma/HospitalApp/models/Venta.java</file>
+            <file>file:/C:/Users/solis/Desktop/POO/HospitalApp/src/autonoma/HospitalApp/views/ListaPacientes.java</file>
             <file>file:/C:/Users/solis/Desktop/POO/HospitalApp/src/autonoma/HospitalApp/views/VentanaPrincipal.java</file>
-            <file>file:/C:/Users/solis/Desktop/POO/HospitalApp/src/autonoma/HospitalApp/models/Paciente.java</file>
         </group>
     </open-files>
 </project-private>
