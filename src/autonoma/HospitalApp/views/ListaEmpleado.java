@@ -4,6 +4,7 @@
  */
 package autonoma.HospitalApp.views;
 
+import autonoma.HospitalApp.models.Hospital;
 import javax.swing.JOptionPane;
 
 /**
@@ -11,15 +12,21 @@ import javax.swing.JOptionPane;
  * @author solis
  */
 public class ListaEmpleado extends javax.swing.JDialog {
+    
+    private Hospital hospital;
+    private VentanaPrincipal ventanaPrincipal;
 
     /**
      * Creates new form MostrarEmpleado
      */
-    public ListaEmpleado(java.awt.Frame parent, boolean modal) {
+    public ListaEmpleado(java.awt.Frame parent, boolean modal, Hospital hospital, VentanaPrincipal ventanaPrincipal) {
         super(parent, modal);
         initComponents();
         setResizable(false);
         this.setLocationRelativeTo(null);
+        
+        
+        
     }
 
     /**

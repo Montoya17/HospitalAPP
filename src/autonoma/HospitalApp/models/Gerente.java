@@ -92,6 +92,10 @@ public class Gerente {
     public void setCarrera(String carrera) {
         this.carrera = carrera;
     }
+
+    public Object getDocumento() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     
     

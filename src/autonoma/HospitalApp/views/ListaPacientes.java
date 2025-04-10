@@ -4,20 +4,32 @@
  */
 package autonoma.HospitalApp.views;
 
+import autonoma.HospitalApp.models.Hospital;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author solis
  */
 public class ListaPacientes extends javax.swing.JDialog {
+    
+    private Hospital hospital;
+    private VentanaPrincipal ventanaPrincipal;
 
     /**
      * Creates new form ListaPacientes
      */
-    public ListaPacientes(java.awt.Frame parent, boolean modal) {
+    public ListaPacientes(java.awt.Frame parent, boolean modal, Hospital hospital, VentanaPrincipal ventanaPrincipal) {
         super(parent, modal);
         initComponents();
         setResizable(false);
         this.setLocationRelativeTo(null);
+        try {
+            this.setIconImage(new ImageIcon(getClass().getResource("/autonoma/HospiatalApp/images/hospital.png")).getImage());
+        } catch (Exception e) {
+        }
+        this.hospital = hospital;
+        this.ventanaPrincipal = ventanaPrincipal;
     }
 
     /**

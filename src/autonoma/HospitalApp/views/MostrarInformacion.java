@@ -6,7 +6,14 @@ package autonoma.HospitalApp.views;
 
 import autonoma.HospitalApp.models.Hospital;
 import java.awt.Frame;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import autonoma.HospitalApp.views.ActualizarInformacion;
+
 
 /**
  *
@@ -16,6 +23,7 @@ public class MostrarInformacion extends javax.swing.JDialog {
 
     private Hospital hospital;
     private VentanaPrincipal ventanaPrincipal;
+  
     
     
     /**
@@ -32,6 +40,7 @@ public class MostrarInformacion extends javax.swing.JDialog {
         setResizable(false);
         this.setLocationRelativeTo(null);
         
+        
         try {
              this.setIconImage(new ImageIcon(getClass().getResource("/autonoma/DemoTienda/images/tienda.png")).getImage());
         } catch (Exception e) {
@@ -39,9 +48,30 @@ public class MostrarInformacion extends javax.swing.JDialog {
         }
         this.hospital = hospital;
         this.ventanaPrincipal = ventanaPrincipal;
+        
+        
+        this.hospital.LeerDesdeArchivo("Hospital.txt"); 
+        MostrarInformacionEnTabla(this.hospital);
 
     }
     
+    
+    private void MostrarInformacionEnTabla(Hospital hospital) {
+    DefaultTableModel modelo = (DefaultTableModel) tablaInformacion.getModel();
+    modelo.setRowCount(0); // Limpiar tabla
+
+    modelo.addRow(new Object[]{"Nombre", hospital.getNombre()});
+    modelo.addRow(new Object[]{"Dirección", hospital.getDireccion()});
+    modelo.addRow(new Object[]{"Teléfono", hospital.getTelefono()});
+    modelo.addRow(new Object[]{"Logo", hospital.getLogo()});
+    modelo.addRow(new Object[]{"Presupuesto", hospital.getPresupuesto()});
+    modelo.addRow(new Object[]{"Meta Ventas Anual", hospital.getMetaVentasAnual()});
+    modelo.addRow(new Object[]{"Latitud", hospital.getLatitud()});
+    modelo.addRow(new Object[]{"Longitud", hospital.getLongitud()});
+    modelo.addRow(new Object[]{"Estado", hospital.getEstado()});
+
+}
+
     
 
 
@@ -69,7 +99,7 @@ public class MostrarInformacion extends javax.swing.JDialog {
         btnActualizar = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaInformacion = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setSize(new java.awt.Dimension(658, 357));
@@ -99,6 +129,16 @@ public class MostrarInformacion extends javax.swing.JDialog {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         btnActualizar.setText("Actualizar");
+        btnActualizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnActualizarMouseClicked(evt);
+            }
+        });
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
 
         btnVolver.setText("Volver");
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -107,7 +147,7 @@ public class MostrarInformacion extends javax.swing.JDialog {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaInformacion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -133,11 +173,11 @@ public class MostrarInformacion extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jScrollPane2.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
+        tablaInformacion.getTableHeader().setReorderingAllowed(false);
+        jScrollPane2.setViewportView(tablaInformacion);
+        if (tablaInformacion.getColumnModel().getColumnCount() > 0) {
+            tablaInformacion.getColumnModel().getColumn(0).setResizable(false);
+            tablaInformacion.getColumnModel().getColumn(1).setResizable(false);
         }
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -188,8 +228,18 @@ public class MostrarInformacion extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
+
+    private void btnActualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarMouseClicked
+     ActualizarInformacion VentanaActualizarInformacion;
+        VentanaActualizarInformacion = new ActualizarInformacion((Frame) this.getParent(), true, this.hospital, this);
+        VentanaActualizarInformacion.setVisible(true);
+    }//GEN-LAST:event_btnActualizarMouseClicked
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+
+    }//GEN-LAST:event_btnActualizarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -199,7 +249,7 @@ public class MostrarInformacion extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tablaInformacion;
     // End of variables declaration//GEN-END:variables
 
     

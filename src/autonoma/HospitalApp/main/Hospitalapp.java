@@ -18,12 +18,16 @@ import autonoma.HospitalApp.views.VentanaPrincipal;
 
 public class HospitalApp{
     
-    public static void main(String[] args) {
-        
-        VentanaPrincipal ventana = new VentanaPrincipal();
-        ventana.setVisible(true);
-           }
+  public static void main(String[] args) {
+        // Aquí creamos el hospital (puede ser cargado desde archivo si ya lo tienes así)
+        Hospital hospital = new Hospital("San Jose St. Bonaventure");
+            
 
+        // Pasamos el hospital a la ventana
+        VentanaPrincipal ventana = new VentanaPrincipal(hospital);
+        ventana.setVisible(true);
+    }
 }
+
 
   
