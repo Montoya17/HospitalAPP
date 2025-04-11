@@ -37,4 +37,11 @@ public class EmpleadoOperativo extends Empleado {
         return salarioBase * 1.2;
     }
 
+    @Override
+    public String toString() {
+        return "EmpleadoOperativo{" + "areaTrabajada=" + areaTrabajada + '}';
+    }
+    
+    
+
 }

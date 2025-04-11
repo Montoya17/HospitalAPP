@@ -55,10 +55,13 @@ public class MostrarInformacion extends javax.swing.JDialog {
 
     }
     
-    
+    /**
+     * Hacemos MostrarInformacion en tabla para poder mostrar La informacion del hospital en la tabla
+     * @param hospital 
+     */
     private void MostrarInformacionEnTabla(Hospital hospital) {
     DefaultTableModel modelo = (DefaultTableModel) tablaInformacion.getModel();
-    modelo.setRowCount(0); // Limpiar tabla
+    modelo.setRowCount(0); 
 
     modelo.addRow(new Object[]{"Nombre", hospital.getNombre()});
     modelo.addRow(new Object[]{"Dirección", hospital.getDireccion()});
@@ -69,6 +72,13 @@ public class MostrarInformacion extends javax.swing.JDialog {
     modelo.addRow(new Object[]{"Latitud", hospital.getLatitud()});
     modelo.addRow(new Object[]{"Longitud", hospital.getLongitud()});
     modelo.addRow(new Object[]{"Estado", hospital.getEstado()});
+    
+    if (hospital.getGerente() != null) {
+        modelo.addRow(new Object[]{"Nombre Gerente", hospital.getGerente().getNombre()});
+        modelo.addRow(new Object[]{"Documento Gerente", hospital.getGerente().getDocumento()});
+        modelo.addRow(new Object[]{"Edad Gerente", hospital.getGerente().getEdad()});
+        modelo.addRow(new Object[]{"Carrera Gerente", hospital.getGerente().getCarrera()});
+    }
 
 }
 
@@ -155,7 +165,7 @@ public class MostrarInformacion extends javax.swing.JDialog {
                 {null, null}
             },
             new String [] {
-                "Atributo", "Informacion"
+                "Hospital", "Informacion"
             }
         ) {
             Class[] types = new Class [] {

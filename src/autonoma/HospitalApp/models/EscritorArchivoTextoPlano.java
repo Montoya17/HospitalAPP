@@ -31,6 +31,10 @@ public class EscritorArchivoTextoPlano implements Escritor {
     public EscritorArchivoTextoPlano(String filePath) {
         this.filePath = filePath;
     }
+
+    EscritorArchivoTextoPlano() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
  
 
     
@@ -42,7 +46,7 @@ public class EscritorArchivoTextoPlano implements Escritor {
      * @throws IOException 
      */
     @Override
-    public void escribir(ArrayList<String> archivo) throws IOException {
+    public void escribir(String ruta, ArrayList<String> archivo) throws IOException {
 
         File fichero = new File(this.filePath);
         FileWriter writer = new FileWriter(fichero,false);

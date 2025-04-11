@@ -407,7 +407,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEmpleadosMouseClicked
 
     private void btnMedicamentosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMedicamentosMouseClicked
-        System.out.println("Medicamentos");
+        ListaMedicamentos VentanaListaMedicamentos = new ListaMedicamentos(this, true, this.hospital, this);
+        VentanaListaMedicamentos.setVisible(true);
     }//GEN-LAST:event_btnMedicamentosMouseClicked
 
     private void btnInventarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInventarioMouseClicked
@@ -451,8 +452,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void btnPacientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPacientesMouseClicked
         
-        ListaPacientes VentanaListaPacientes = new ListaPacientes(this, true, this.hospital, this);
-        VentanaListaPacientes.setVisible(true);
+        AgregarPaciente VentanaAgregarPaciente = new AgregarPaciente(this, true, this.hospital, this);
+        VentanaAgregarPaciente.setVisible(true);
         
     }//GEN-LAST:event_btnPacientesMouseClicked
 

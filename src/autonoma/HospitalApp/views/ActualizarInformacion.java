@@ -4,18 +4,24 @@
  */
 package autonoma.HospitalApp.views;
 
+import autonoma.HospitalApp.models.Gerente;
 import autonoma.HospitalApp.models.Hospital;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author solis
  */
+
 public class ActualizarInformacion extends javax.swing.JDialog {
-     
+
     private Hospital hospital;
     private MostrarInformacion mostrarInformacion;
-    
+
     /**
      * Creates new form ActualizarInformacion
      */
@@ -26,15 +32,14 @@ public class ActualizarInformacion extends javax.swing.JDialog {
         this.mostrarInformacion = mostrarInformacion;
         setResizable(false);
         this.setLocationRelativeTo(null);
-        
+
         try {
             this.setIconImage(new ImageIcon(getClass().getResource("/autonoma/HospiatalApp/images/hospital.png")).getImage());
         } catch (Exception e) {
         }
         this.hospital = hospital;
         this.mostrarInformacion = mostrarInformacion;
-    }   
-    
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -67,7 +72,7 @@ public class ActualizarInformacion extends javax.swing.JDialog {
         txtTelefono = new javax.swing.JTextField();
         txtLogo = new javax.swing.JTextField();
         txtPresupuesto = new javax.swing.JTextField();
-        txxtVentasAnual = new javax.swing.JTextField();
+        txtVentasAnual = new javax.swing.JTextField();
         txtFechaFundacion = new javax.swing.JTextField();
         txtLatitud = new javax.swing.JTextField();
         txtLongitud = new javax.swing.JTextField();
@@ -137,9 +142,9 @@ public class ActualizarInformacion extends javax.swing.JDialog {
             }
         });
 
-        txxtVentasAnual.addActionListener(new java.awt.event.ActionListener() {
+        txtVentasAnual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txxtVentasAnualActionPerformed(evt);
+                txtVentasAnualActionPerformed(evt);
             }
         });
 
@@ -168,6 +173,11 @@ public class ActualizarInformacion extends javax.swing.JDialog {
         });
 
         btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
 
         btnVolver.setText("Volver");
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -204,7 +214,7 @@ public class ActualizarInformacion extends javax.swing.JDialog {
                     .addComponent(txtTelefono)
                     .addComponent(txtLogo)
                     .addComponent(txtPresupuesto)
-                    .addComponent(txxtVentasAnual)
+                    .addComponent(txtVentasAnual)
                     .addComponent(txtFechaFundacion)
                     .addComponent(txtLatitud)
                     .addComponent(txtLongitud)
@@ -246,7 +256,7 @@ public class ActualizarInformacion extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
-                    .addComponent(txxtVentasAnual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtVentasAnual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
@@ -307,9 +317,9 @@ public class ActualizarInformacion extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTelefonoActionPerformed
 
-    private void txxtVentasAnualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txxtVentasAnualActionPerformed
+    private void txtVentasAnualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVentasAnualActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txxtVentasAnualActionPerformed
+    }//GEN-LAST:event_txtVentasAnualActionPerformed
 
     private void txtLatitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLatitudActionPerformed
         // TODO add your handling code here:
@@ -328,8 +338,12 @@ public class ActualizarInformacion extends javax.swing.JDialog {
     }//GEN-LAST:event_txtCarreraActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-       this.dispose();
+        this.dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
+
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+
+    }//GEN-LAST:event_btnAgregarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
@@ -364,6 +378,7 @@ public class ActualizarInformacion extends javax.swing.JDialog {
     private javax.swing.JTextField txtNombrehospital;
     private javax.swing.JTextField txtPresupuesto;
     private javax.swing.JTextField txtTelefono;
-    private javax.swing.JTextField txxtVentasAnual;
+    private javax.swing.JTextField txtVentasAnual;
     // End of variables declaration//GEN-END:variables
+
 }

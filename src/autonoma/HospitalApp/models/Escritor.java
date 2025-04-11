@@ -19,7 +19,7 @@ public interface Escritor {
      * @param archivo
      * @throws java.io.IOException si el archivo no existe
      */
-    public abstract void escribir(ArrayList<String> archivo) throws IOException ;
+    public abstract void escribir(String ruta, ArrayList<String> archivo) throws IOException ;
     
 }
 

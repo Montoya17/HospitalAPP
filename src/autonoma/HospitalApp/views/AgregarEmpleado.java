@@ -5,7 +5,13 @@
 package autonoma.HospitalApp.views;
 
 import autonoma.HospitalApp.models.Empleado;
+import autonoma.HospitalApp.models.EmpleadoSalud;
 import autonoma.HospitalApp.models.Hospital;
+import java.awt.Frame;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -14,6 +20,7 @@ import javax.swing.JOptionPane;
  * @author solis
  */
 public class AgregarEmpleado extends javax.swing.JDialog {
+
     private Hospital hospital;
     private VentanaPrincipal ventanaPrincipal;
 
@@ -31,6 +38,21 @@ public class AgregarEmpleado extends javax.swing.JDialog {
         }
         this.hospital = hospital;
         this.ventanaPrincipal = ventanaPrincipal;
+    }
+    
+    /**
+     * creamos el metodo para poder guardar el empleado en el archivo de texto
+     * @param emp 
+     */
+
+    private void guardarEmpleadoEnArchivo(EmpleadoSalud emp) {
+        try (FileWriter fw = new FileWriter("empleados.txt", true); BufferedWriter bw = new BufferedWriter(fw); PrintWriter out = new PrintWriter(bw)) {
+
+            out.println("SALUD;" + emp.getNombre() + ";" + emp.getId() + ";" + emp.getEdad() + ";"
+                    + emp.getCarrera() + ";" + emp.getSalarioBase() + ";" + emp.getHorasTrabajadas());
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(this, "Error al guardar el archivo ");
+        }
     }
 
     /**
@@ -51,9 +73,14 @@ public class AgregarEmpleado extends javax.swing.JDialog {
         txtNombre = new javax.swing.JTextField();
         txtNumerodocumento = new javax.swing.JTextField();
         txtEdad = new javax.swing.JTextField();
-        txtSalarioBase = new javax.swing.JTextField();
+        txtHorastrabajadas = new javax.swing.JTextField();
         btnVolver = new javax.swing.JButton();
         brnAgregar1 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        txtEspecialidad = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        txtSalarioBase = new javax.swing.JTextField();
+        btnAgregarempleado = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -105,6 +132,12 @@ public class AgregarEmpleado extends javax.swing.JDialog {
             }
         });
 
+        txtHorastrabajadas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtHorastrabajadasActionPerformed(evt);
+            }
+        });
+
         btnVolver.setText("Volver");
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,6 +149,28 @@ public class AgregarEmpleado extends javax.swing.JDialog {
         brnAgregar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 brnAgregar1ActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Horas Trabajadas:");
+
+        txtEspecialidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEspecialidadActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setText("Especialidad:");
+
+        btnAgregarempleado.setText("Ver empleados");
+        btnAgregarempleado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAgregarempleadoMouseClicked(evt);
+            }
+        });
+        btnAgregarempleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarempleadoActionPerformed(evt);
             }
         });
 
@@ -132,20 +187,24 @@ public class AgregarEmpleado extends javax.swing.JDialog {
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel5))
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7))
                 .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(brnAgregar1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txtNombre)
                     .addComponent(txtNumerodocumento, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
                     .addComponent(txtEdad)
+                    .addComponent(txtEspecialidad)
+                    .addComponent(txtHorastrabajadas, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
                     .addComponent(txtSalarioBase))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(brnAgregar1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(173, 173, 173)
-                .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(185, 185, 185))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAgregarempleado)
+                .addGap(17, 17, 17))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,19 +218,32 @@ public class AgregarEmpleado extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtNumerodocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtEspecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(btnAgregarempleado, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txtSalarioBase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(62, 62, 62)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnVolver)
-                    .addComponent(brnAgregar1))
-                .addGap(0, 78, Short.MAX_VALUE))
+                    .addComponent(jLabel6)
+                    .addComponent(txtHorastrabajadas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(brnAgregar1)
+                    .addComponent(btnVolver))
+                .addGap(0, 28, Short.MAX_VALUE))
         );
 
         pack();
@@ -194,21 +266,84 @@ public class AgregarEmpleado extends javax.swing.JDialog {
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void brnAgregar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brnAgregar1ActionPerformed
- 
+        String nombre = txtNombre.getText().trim();
+        String numeroDocumento = txtNumerodocumento.getText().trim();
+        String edad = txtEdad.getText().trim();
+        String especialidad = txtEspecialidad.getText().trim();
+        String salarioBase = txtSalarioBase.getText().trim();
+        String horasTrabajadas = txtHorastrabajadas.getText().trim();
         
+        /**
+         * convertimos avalores numericos
+         */
+
+        int edadNum = Integer.parseInt(txtEdad.getText().trim());
+        double salarioBaseNum = Double.parseDouble(txtSalarioBase.getText().trim());
+        int horasTrabajadasNum = Integer.parseInt(txtHorastrabajadas.getText().trim());
+
+        /**
+         * validamos que los campos estan con informacion
+         */
+        if (nombre.isEmpty() || nombre.isEmpty() || numeroDocumento.isEmpty() || edad.isEmpty() || especialidad.isEmpty() || salarioBase.isEmpty() || horasTrabajadas.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos de texto");
+            return;
+        }
+
+        try {
+
+            // Creamosa al empleado Salud
+            EmpleadoSalud emp = new EmpleadoSalud(nombre, Integer.parseInt(numeroDocumento), edadNum, salarioBaseNum, especialidad, horasTrabajadasNum);
+
+            if (hospital.agregarEmpleado(emp)) {
+                hospital.guardarEmpleadoSalud(emp, "empleadosSalud.txt");
+                JOptionPane.showMessageDialog(this, "Empleado agregado con éxito ");
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(this, "Error al agregar el empleado");
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Por favor ingrese los datos numéricos correctamente");
+        }
+        
+        
+
+
     }//GEN-LAST:event_brnAgregar1ActionPerformed
 
-    
+    private void txtHorastrabajadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHorastrabajadasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtHorastrabajadasActionPerformed
+
+    private void txtEspecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEspecialidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEspecialidadActionPerformed
+
+    private void btnAgregarempleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarempleadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAgregarempleadoActionPerformed
+
+    private void btnAgregarempleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarempleadoMouseClicked
+        ListaEmpleado VentanaListaEmpleado;
+       VentanaListaEmpleado = new ListaEmpleado((Frame)this.getParent(), true, this.hospital, this);
+       VentanaListaEmpleado.setVisible(true);
+    }//GEN-LAST:event_btnAgregarempleadoMouseClicked
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton brnAgregar1;
+    private javax.swing.JButton btnAgregarempleado;
     private javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtEdad;
+    private javax.swing.JTextField txtEspecialidad;
+    private javax.swing.JTextField txtHorastrabajadas;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNumerodocumento;
     private javax.swing.JTextField txtSalarioBase;

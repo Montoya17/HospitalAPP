@@ -3,12 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/solis/Desktop/POO/HospitalApp/src/autonoma/HospitalApp/main/HospitalApp.java</file>
+            <file>file:/C:/Users/solis/Desktop/POO/HospitalApp/src/autonoma/HospitalApp/views/AgregarPaciente.java</file>
             <file>file:/C:/Users/solis/Desktop/POO/HospitalApp/src/autonoma/HospitalApp/views/AgregarEmpleado.java</file>
             <file>file:/C:/Users/solis/Desktop/POO/HospitalApp/src/autonoma/HospitalApp/views/ListaEmpleado.java</file>
+            <file>file:/C:/Users/solis/Desktop/POO/HospitalApp/src/autonoma/HospitalApp/models/Hospital.java</file>
+            <file>file:/C:/Users/solis/Desktop/POO/HospitalApp/src/autonoma/HospitalApp/models/MedicamentoMarca.java</file>
+            <file>file:/C:/Users/solis/Desktop/POO/HospitalApp/src/autonoma/HospitalApp/views/ListaMedicamentos.java</file>
+            <file>file:/C:/Users/solis/Desktop/POO/HospitalApp/src/autonoma/HospitalApp/models/MedicamentoGenerico.java</file>
+            <file>file:/C:/Users/solis/Desktop/POO/HospitalApp/src/autonoma/HospitalApp/models/InventarioFarmacia.java</file>
             <file>file:/C:/Users/solis/Desktop/POO/HospitalApp/src/autonoma/HospitalApp/views/MostrarInformacion.java</file>
             <file>file:/C:/Users/solis/Desktop/POO/HospitalApp/src/autonoma/HospitalApp/views/ListaPacientes.java</file>
+            <file>file:/C:/Users/solis/Desktop/POO/HospitalApp/src/autonoma/HospitalApp/views/ActualizarInformacion.java</file>
             <file>file:/C:/Users/solis/Desktop/POO/HospitalApp/src/autonoma/HospitalApp/views/VentanaPrincipal.java</file>
+            <file>file:/C:/Users/solis/Desktop/POO/HospitalApp/src/autonoma/HospitalApp/models/Medicamento.java</file>
         </group>
     </open-files>
 </project-private>

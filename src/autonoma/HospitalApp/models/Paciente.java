@@ -4,57 +4,59 @@
  */
 package autonoma.HospitalApp.models;
 
-
 import java.util.ArrayList;
 
 /**
- *Se crea la clase paciente
- * @author Alejandra 
+ * Se crea la clase paciente
+ *
+ * @author Alejandra
  * @@since 01/04/2025
  */
 public class Paciente {
+
     /*
     El atributo nombre, hace referencia al nombre del paciente
-    */
-   private String nombre;
-   /*
+     */
+    private String nombre;
+    /*
    El atributo id,se refiere al documento del paciente
-   */
+     */
     private int id;
     /*
     El atributo edad,hace referencia a la edad que tiene el paciente
-    */
+     */
     private int edad;
     /*
     El atributo correo,hace referenci9a a el correo que tiene el paciente
-    */
+     */
     private String correo;
     /*
     El atributo telefono, corresponde a el telefono que tiene el paciente
-    */
-    
+     */
+
     private int telefono;
     /*
     El atributo estado, se refiere al estado en el que se encuenta el paciente,
     si es critico o saludable
-    */
-    
+     */
+
     private String estado;
     /*
     El atributo enfermedades, hace referencdia a las listas de enfermedades que 
     tiene el paciente
-    */
-    
-    private ArrayList <Enfermedad>enfermedades;
+     */
+
+    private ArrayList<Enfermedad> enfermedades;
     /*
     El atributo medicina, hace referencia a las medicinas que debe tomar el 
     paciente 
-    */
-    
-    private ArrayList <Medicina>medicinas;
+     */
+
+    private ArrayList<Medicina> medicinas;
+
     /*
     Se crea el metodo constructor para dichos atributos
-    */
+     */
     public Paciente(String nombre, int id, int edad, String correo, int telefono, String estado, ArrayList<Enfermedad> enfermedades, ArrayList<Medicina> medicinas) {
         this.nombre = nombre;
         this.id = id;
@@ -62,20 +64,27 @@ public class Paciente {
         this.correo = correo;
         this.telefono = telefono;
         this.estado = estado;
-        this.enfermedades =  new ArrayList<>();
+        this.enfermedades = new ArrayList<>();
         this.medicinas = new ArrayList<>();
-        
-    }
-    /*
-    El metodo curar enfermerdad, nos perimire verificar si el usuario tiene  esa enfermerdad
-    */
 
+    }
     
-    
+    public Paciente(String nombre, int id, int edad, String correo, int telefono, String estado) {
+    this.nombre = nombre;
+    this.id = id;
+    this.edad = edad;
+    this.correo = correo;
+    this.telefono = telefono;
+    this.estado = estado;
+    this.enfermedades = new ArrayList<>();
+    this.medicinas = new ArrayList<>();
+}
+
    
+    
     /*
         Se crea el metodo getter and setters
-    */
+     */
     public String getNombre() {
         return nombre;
     }
@@ -139,6 +148,5 @@ public class Paciente {
     public void setMedicinas(ArrayList<Medicina> medicinas) {
         this.medicinas = medicinas;
     }
-    
-    
+
 }

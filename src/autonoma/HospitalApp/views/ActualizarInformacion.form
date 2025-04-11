@@ -106,7 +106,7 @@
                       <Component id="txtTelefono" max="32767" attributes="0"/>
                       <Component id="txtLogo" max="32767" attributes="0"/>
                       <Component id="txtPresupuesto" max="32767" attributes="0"/>
-                      <Component id="txxtVentasAnual" max="32767" attributes="0"/>
+                      <Component id="txtVentasAnual" max="32767" attributes="0"/>
                       <Component id="txtFechaFundacion" max="32767" attributes="0"/>
                       <Component id="txtLatitud" max="32767" attributes="0"/>
                       <Component id="txtLongitud" max="32767" attributes="0"/>
@@ -157,7 +157,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                      <Component id="txxtVentasAnual" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtVentasAnual" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -293,9 +293,9 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtPresupuesto">
         </Component>
-        <Component class="javax.swing.JTextField" name="txxtVentasAnual">
+        <Component class="javax.swing.JTextField" name="txtVentasAnual">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txxtVentasAnualActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtVentasAnualActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtFechaFundacion">
@@ -330,6 +330,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Agregar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAgregarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnVolver">
           <Properties>

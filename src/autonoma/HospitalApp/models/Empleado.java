@@ -27,16 +27,22 @@ public abstract  class Empleado {
     el atributo salario, hace refencial al salario del empleado
     */
     double salarioBase;
+    /**
+     * se hace atributos horas trabajadas
+     */
+    double horasTrabajadas;
+    
 
     /* 
     se crea el metodo constructor con los respectivos atributos
     */
-    public Empleado(String nombre, int id, int edad, double salarioBase) {
-        this.nombre = nombre;
-        this.id = id;
-        this.edad = edad;
-        this.salarioBase = salarioBase;
-    }
+        public Empleado(String nombre, int id, int edad, double salarioBase) {
+         this.nombre = nombre;
+         this.id = id;
+         this.edad = edad;
+         this.salarioBase = salarioBase;
+     }
+
     /*
     Se crea el metodo calcularSalario abstracto
     porque es dependiendo del empleado
@@ -99,6 +105,10 @@ public abstract  class Empleado {
         this.salarioBase = salarioBase;
     }
     
+public String toCSV() {
+    return nombre + ";" + id + ";" + edad + ";" + salarioBase + ";" + "SALUD" + ";" + ";" + horasTrabajadas;
+}
+
     
     
     

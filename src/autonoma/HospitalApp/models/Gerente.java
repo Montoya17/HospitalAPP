@@ -32,7 +32,7 @@ public class Gerente {
     se crea el metodo constructor con dichos atributos
     */
 
-    public Gerente(String nombre, int id, int edad, String carrera) {
+    public Gerente(String nombre, String carrera, int id, String carreraGerente) {
         this.nombre = nombre;
         this.id = id;
         this.edad = edad;

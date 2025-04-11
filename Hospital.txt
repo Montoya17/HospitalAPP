@@ -1,14 +1,13 @@
 Hospital San Jose St. Bonaventure
- 2425 Samaritan Dr, San Jose, CA 95124, Estados Unidos
+2425 Samaritan Dr, San Jose, CA 95124
 +1 408-559-2011
 logo.png
 1000000
- 0
-1965
-37.25157313140872
+0
+1965;37.25157313140872
 -121.94667417922749
- Activo
+Activo
 Aaron Glassman
- 84.941.564
- 69
- Neurocirujano
+84.941.564
+69
+Neurocirujano

@@ -5,66 +5,42 @@
 package autonoma.HospitalApp.views;
 
 import autonoma.HospitalApp.models.Hospital;
+import autonoma.HospitalApp.models.Medicamento;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author solis
  */
-public class ListaEmpleado extends javax.swing.JDialog {
+public class ListaMedicamentos extends javax.swing.JDialog {
     
     private Hospital hospital;
-    private AgregarEmpleado agregarEmpleado;
+    private VentanaPrincipal ventanaPrincipal;
 
     /**
-     * Creates new form MostrarEmpleado
+     * Creates new form ListaMedicamentos
      */
-    public ListaEmpleado(java.awt.Frame parent, boolean modal, Hospital hospital, AgregarEmpleado agregarEmpleado) {
+    public ListaMedicamentos(java.awt.Frame parent, boolean modal, Hospital hospital, VentanaPrincipal ventanaPrincipal) {
         super(parent, modal);
         initComponents();
-        cargarEmpleadosDesdeArchivo();
-        setResizable(false);
-        this.hospital = hospital;
-        this.agregarEmpleado = agregarEmpleado;
         setResizable(false);
         this.setLocationRelativeTo(null);
+        
         try {
             this.setIconImage(new ImageIcon(getClass().getResource("/autonoma/HospiatalApp/images/hospital.png")).getImage());
         } catch (Exception e) {
         }
         this.hospital = hospital;
-        this.agregarEmpleado = agregarEmpleado;
+        this.ventanaPrincipal = ventanaPrincipal;
         
     }
     
-        private void cargarEmpleadosDesdeArchivo() {
-        DefaultTableModel model = (DefaultTableModel) Tablaempleados.getModel();
-        model.setRowCount(0); // Limpiar tabla
 
-        try (BufferedReader br = new BufferedReader(new FileReader("Pacientes.txt"))) {
-            String linea;
-            while ((linea = br.readLine()) != null) {
-                // Suponiendo que las líneas son tipo: SALUD;nombre;id;edad;correo;telefono;estado
-                String[] datos = linea.split(";");
-                if (datos.length >= 7) {
-                    String nombre = datos[1];
-                    String id = datos[2];
-                    String edad = datos[3];
-                    String correo = datos[4];
-                    String telefono = datos[5];
-                    String estado = datos[6];
-                    model.addRow(new Object[]{nombre, id, edad, correo, telefono, estado});
-                }
-            }
-        } catch (IOException e) {
-            ;
-        }
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -79,8 +55,7 @@ public class ListaEmpleado extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        Tablaempleados = new javax.swing.JTable();
-        btnActualizar = new javax.swing.JButton();
+        TablaMedicamentos = new javax.swing.JTable();
         btnVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -88,41 +63,41 @@ public class ListaEmpleado extends javax.swing.JDialog {
         jPanel1.setBackground(new java.awt.Color(51, 204, 255));
 
         jLabel1.setFont(new java.awt.Font("Sitka Small", 0, 24)); // NOI18N
-        jLabel1.setText("Lista Empleados");
+        jLabel1.setText("Lista Medicamentos");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(358, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(394, 394, 394)
                 .addComponent(jLabel1)
-                .addGap(358, 358, 358))
+                .addContainerGap(394, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(50, Short.MAX_VALUE)
+                .addContainerGap(34, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(34, 34, 34))
         );
 
-        Tablaempleados.setModel(new javax.swing.table.DefaultTableModel(
+        TablaMedicamentos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Nombre", "ID", "Edad", "Salario Base"
+                "Nombre", "Descripcion", "Costo", "Precio venta", "Fabricante", "Disponibles"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, true, false, false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -133,30 +108,20 @@ public class ListaEmpleado extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(Tablaempleados);
-        if (Tablaempleados.getColumnModel().getColumnCount() > 0) {
-            Tablaempleados.getColumnModel().getColumn(0).setResizable(false);
-            Tablaempleados.getColumnModel().getColumn(1).setResizable(false);
-            Tablaempleados.getColumnModel().getColumn(2).setResizable(false);
-            Tablaempleados.getColumnModel().getColumn(3).setResizable(false);
+        jScrollPane1.setViewportView(TablaMedicamentos);
+        if (TablaMedicamentos.getColumnModel().getColumnCount() > 0) {
+            TablaMedicamentos.getColumnModel().getColumn(0).setResizable(false);
+            TablaMedicamentos.getColumnModel().getColumn(1).setResizable(false);
+            TablaMedicamentos.getColumnModel().getColumn(2).setResizable(false);
+            TablaMedicamentos.getColumnModel().getColumn(3).setResizable(false);
+            TablaMedicamentos.getColumnModel().getColumn(4).setResizable(false);
+            TablaMedicamentos.getColumnModel().getColumn(5).setResizable(false);
         }
-
-        btnActualizar.setText("Actualizar");
-        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActualizarActionPerformed(evt);
-            }
-        });
 
         btnVolver.setText("Volver");
         btnVolver.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnVolverMouseExited(evt);
-            }
-        });
-        btnVolver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVolverActionPerformed(evt);
             }
         });
 
@@ -165,22 +130,18 @@ public class ListaEmpleado extends javax.swing.JDialog {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 689, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 772, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnVolver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(69, 69, 69))
+                .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(81, 81, 81)
-                .addComponent(btnActualizar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
-                .addComponent(btnVolver)
-                .addGap(90, 90, 90))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(116, 116, 116))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -194,31 +155,20 @@ public class ListaEmpleado extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-
-    }//GEN-LAST:event_btnActualizarActionPerformed
-
-    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnVolverActionPerformed
-
     private void btnVolverMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMouseExited
         this.dispose();
     }//GEN-LAST:event_btnVolverMouseExited
 
-   
-
+  
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable Tablaempleados;
-    private javax.swing.JButton btnActualizar;
+    private javax.swing.JTable TablaMedicamentos;
     private javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

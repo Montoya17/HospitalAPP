@@ -5,7 +5,11 @@
 package autonoma.HospitalApp.views;
 
 import autonoma.HospitalApp.models.Hospital;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import javax.swing.ImageIcon;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -14,14 +18,17 @@ import javax.swing.ImageIcon;
 public class ListaPacientes extends javax.swing.JDialog {
     
     private Hospital hospital;
-    private VentanaPrincipal ventanaPrincipal;
+    private AgregarPaciente agregarPaciente;
 
     /**
      * Creates new form ListaPacientes
      */
-    public ListaPacientes(java.awt.Frame parent, boolean modal, Hospital hospital, VentanaPrincipal ventanaPrincipal) {
+    public ListaPacientes(java.awt.Frame parent, boolean modal, Hospital hospital, AgregarPaciente agregarPaciente) {
         super(parent, modal);
         initComponents();
+        cargarPacientesDesdeArchivo();
+        this.hospital = hospital;
+        this.agregarPaciente = agregarPaciente;
         setResizable(false);
         this.setLocationRelativeTo(null);
         try {
@@ -29,7 +36,31 @@ public class ListaPacientes extends javax.swing.JDialog {
         } catch (Exception e) {
         }
         this.hospital = hospital;
-        this.ventanaPrincipal = ventanaPrincipal;
+        this.agregarPaciente = agregarPaciente;
+    }
+    
+    private void cargarPacientesDesdeArchivo() {
+        DefaultTableModel model = (DefaultTableModel) Tablapacientes.getModel();
+        model.setRowCount(0); // Limpiar tabla
+
+        try (BufferedReader br = new BufferedReader(new FileReader("Pacientes.txt"))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                // Suponiendo que las líneas son tipo: SALUD;nombre;id;edad;correo;telefono;estado
+                String[] datos = linea.split(";");
+                if (datos.length >= 7) {
+                    String nombre = datos[1];
+                    String id = datos[2];
+                    String edad = datos[3];
+                    String correo = datos[4];
+                    String telefono = datos[5];
+                    String estado = datos[6];
+                    model.addRow(new Object[]{nombre, id, edad, correo, telefono, estado});
+                }
+            }
+        } catch (IOException e) {
+            ;
+        }
     }
 
     /**
@@ -45,7 +76,7 @@ public class ListaPacientes extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        Tablapacientes = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -71,7 +102,7 @@ public class ListaPacientes extends javax.swing.JDialog {
                 .addContainerGap(43, Short.MAX_VALUE))
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        Tablapacientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -97,14 +128,14 @@ public class ListaPacientes extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
-            jTable1.getColumnModel().getColumn(2).setResizable(false);
-            jTable1.getColumnModel().getColumn(3).setResizable(false);
-            jTable1.getColumnModel().getColumn(4).setResizable(false);
-            jTable1.getColumnModel().getColumn(5).setResizable(false);
+        jScrollPane1.setViewportView(Tablapacientes);
+        if (Tablapacientes.getColumnModel().getColumnCount() > 0) {
+            Tablapacientes.getColumnModel().getColumn(0).setResizable(false);
+            Tablapacientes.getColumnModel().getColumn(1).setResizable(false);
+            Tablapacientes.getColumnModel().getColumn(2).setResizable(false);
+            Tablapacientes.getColumnModel().getColumn(3).setResizable(false);
+            Tablapacientes.getColumnModel().getColumn(4).setResizable(false);
+            Tablapacientes.getColumnModel().getColumn(5).setResizable(false);
         }
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -148,10 +179,10 @@ public class ListaPacientes extends javax.swing.JDialog {
  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable Tablapacientes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

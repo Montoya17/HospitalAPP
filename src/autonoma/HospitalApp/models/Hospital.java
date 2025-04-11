@@ -4,11 +4,13 @@
  */
 package autonoma.HospitalApp.models;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import javax.swing.table.DefaultTableModel;
 
 /**
  * se crea la clase hospital
@@ -49,7 +51,7 @@ public class Hospital {
     /*
     el atributo fechaFundacion, se refiere a la fechadefundacion
      */
-    private Date fechaFundacion;
+    private double fechaFundacion;
 
     /*
     el atributo estado se refiere al estado de lhospital(si esta en quiebra o no)
@@ -70,7 +72,15 @@ public class Hospital {
     /*
     se listan los empleados del hospital para poder hacer algunos metodos 
      */
-    private List<Empleado> empleados;
+    private List<Empleado> empleados = new ArrayList<>();
+    /**
+     * se listan los apcientes del hospital
+     */
+    private List<Paciente> pacientes = new ArrayList<>();
+    
+    
+
+    
 
     ////////////////////////////////////////////////////////////////////////////
     // Atributos
@@ -88,7 +98,7 @@ public class Hospital {
     Se crean los metodos constructores de dichos atributos
      */
     public Hospital(String nombre, String direccion, String telefono, String logo, double presupuesto, double presupuestoInical,
-            double metaVentasAnual, Date fechaFundacion, String estado, double latitud, double longitud, Gerente gerente, Gerente Gerente) {
+            double metaVentasAnual, double fechaFundacion, String estado, double latitud, double longitud, Gerente gerente, Gerente Gerente) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
@@ -115,7 +125,7 @@ public class Hospital {
     se hace el metodo de editar la informacion del hospital
      */
     public void editarInformacion(String nombre, String direccion, String telefono, String logo, double presupuesto, double metaVentasAnual,
-            Date fechaFundacion, String estado, double latitud, double longitud, Gerente gerente) {
+            double fechaFundacion, String estado, double latitud, double longitud, Gerente gerente) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
@@ -188,11 +198,34 @@ public class Hospital {
      * se hace el metodo agregar empleado para agregar empleado al hospital
      *
      * @param empleado
+     * @return
      */
-    public void agregarEmpleado(Empleado empleado) {
-        empleados.add(empleado);
-        System.out.println(" El empleado se agrego correctamente");
+    public boolean agregarEmpleado(Empleado empleado) {
+        return empleados.add(empleado);
     }
+    
+    /**
+     * se agrega un empleado l area de salud
+     * @param empleado 
+     */
+
+    public void agregarEmpleadoSalud(EmpleadoSalud empleado) {
+        empleados.add(empleado);
+    }
+    
+    public ArrayList<Empleado> getEmpleados() {
+        return new ArrayList<>(empleados);
+   
+    }
+
+        public boolean agregarPaciente(Paciente p) {
+            return this. pacientes.add(p);
+        }
+
+
+
+    
+    
 
     /**
      * se crea el metodo mostarEmpleados, para que podamos ver los empleados
@@ -204,27 +237,74 @@ public class Hospital {
         }
     }
 
+    /**
+     * se hace el metodo leerdesdearchivo para obtner la informacion del archivo
+     *
+     * @param ruta
+     * @since 10042025
+     *
+     */
     public void LeerDesdeArchivo(String ruta) {
-    Lector lector = new LectorArchivoTextoPlano();
-    try {
-        ArrayList<String> archivo = lector.leer(ruta);
+        Lector lector = new LectorArchivoTextoPlano();
+        try {
+            ArrayList<String> archivo = lector.leer(ruta);
 
-        this.nombre = archivo.get(0);
-        this.direccion = archivo.get(1);
-        this.telefono = archivo.get(2);
-        this.logo = archivo.get(3);
-        this.presupuesto = Double.parseDouble(archivo.get(4));
-        this.metaVentasAnual = Double.parseDouble(archivo.get(5));
-        
-        this.latitud = Double.parseDouble(archivo.get(7));
-        this.longitud = Double.parseDouble(archivo.get(8));
-        this.estado = archivo.get(9);
+            // Validamos que haya suficientes líneas
+            if (archivo.size() >= 13) {
+                /**
+                 * otenemos la informacion de cada atributo y la posicion
+                 */
+                this.nombre = archivo.get(0);
+                this.direccion = archivo.get(1);
+                this.telefono = archivo.get(2);
+                this.logo = archivo.get(3);
+                this.presupuesto = Double.parseDouble(archivo.get(4));
+                this.metaVentasAnual = Double.parseDouble(archivo.get(5));
+                this.fechaFundacion = Double.parseDouble(archivo.get(6));
+                this.latitud = Double.parseDouble(archivo.get(7));
+                this.longitud = Double.parseDouble(archivo.get(8));
+                this.estado = archivo.get(9);
 
+                /**
+                 * fatos el gerente
+                 */
+                String nombreGerente = archivo.get(10);
+                String documentoGerente = archivo.get(11);
+                int edadGerente = Integer.parseInt(archivo.get(12));
+                String carreraGerente = archivo.get(13);
 
-    } catch (IOException | NumberFormatException | IndexOutOfBoundsException e) {
-        System.out.println("Error al leer archivo de hospital: " + e.getMessage());
+                this.gerente = new Gerente(nombreGerente, documentoGerente, edadGerente, carreraGerente);
+            } else {
+                System.out.println("El archivo no contiene suficientes líneas.");
+            }
+
+        } catch (IOException | NumberFormatException | IndexOutOfBoundsException e) {
+            System.out.println("Error al leer archivo del hospital: " + e.getMessage());
+        }
+
+    }
+    
+    /**
+     * creamos el metodo guardarempleado salud para guardarlo en un archobp
+     * @param emp
+     * @param ruta 
+     */
+
+       public void guardarEmpleadoSalud(EmpleadoSalud emp, String ruta) {
+    try (BufferedWriter writer = new BufferedWriter(new FileWriter(ruta, true))) {
+        writer.write(emp.getNombre() + ";" +
+                     emp.getId()+ ";" +
+                     emp.getEdad() + ";" +
+                     emp.getSalarioBase() + ";" +
+                     emp.getEspecialidad() + ";" +
+                     emp.getHorasTrabajadas());
+        writer.newLine();
+    } catch (IOException e) {
+        System.out.println("Error al guardar el empleado: " + e.getMessage());
     }
 }
+
+
 
     /*
     se hacen metodos getter and setters para dichos atributos
@@ -253,9 +333,7 @@ public class Hospital {
         this.telefono = telefono;
     }
 
-    public List<Empleado> getEmpleados() {
-        return empleados;
-    }
+   
 
     public void setEmpleados(List<Empleado> empleados) {
         this.empleados = empleados;
@@ -276,8 +354,6 @@ public class Hospital {
     public void setEscritor(Escritor escritor) {
         this.escritor = escritor;
     }
-
-
 
     public String getLogo() {
         return logo;
@@ -303,11 +379,11 @@ public class Hospital {
         this.metaVentasAnual = metaVentasAnual;
     }
 
-    public Date getFechaFundacion() {
+    public double getFechaFundacion() {
         return fechaFundacion;
     }
 
-    public void setFechaFundacion(Date fechaFundacion) {
+    public void setFechaFundacion(double fechaFundacion) {
         this.fechaFundacion = fechaFundacion;
     }
 

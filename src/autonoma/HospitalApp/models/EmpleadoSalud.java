@@ -6,39 +6,38 @@ package autonoma.HospitalApp.models;
 
 /**
  * se crea la clase EmpleadoSalud
+ *
  * @author solis
  */
 public class EmpleadoSalud extends Empleado {
-    
+
     /*
     el atributo especialidad se refiere a la especialidad del trabajador de salud
-    */
+     */
     private String especialidad;
-    
+
     /*
     el atributo horasTrabajadas, se refiere al total de horas que trabajo el empleado
-    */
+     */
     private int horasTrabajadas;
-    
-     /*
-    se obtienen los atributos de empleado y se hace el metodo constructor  
-    */
-    
-    public EmpleadoSalud(String nombre, int id, int edad, double salario) {
-        super(nombre, id, edad, salario);
-    }
 
-    public EmpleadoSalud(String especialidad, int horasTrabajadas, String nombre, int id, int edad, double salario) {
-        super(nombre, id, edad, salario);
-        this.especialidad = especialidad;
-        this.horasTrabajadas = horasTrabajadas;
-    }
+    /*
+    se obtienen los atributos de empleado y se hace el metodo constructor  
+     */
+   public EmpleadoSalud(String nombre, int id, int edad, double salario, String especialidad, int horasTrabajadas) {
+    super(nombre, id, edad, salario);
+    this.especialidad = especialidad;
+    this.horasTrabajadas = horasTrabajadas;
+}
+
     
+
+
+
     /*
     se hacen los getters and setters de los atributos mencionados
     
-    */
-
+     */
     public String getEspecialidad() {
         return especialidad;
     }
@@ -47,8 +46,20 @@ public class EmpleadoSalud extends Empleado {
         this.especialidad = especialidad;
     }
 
-    public int getHorasTrabajadas() {
+    public double getSalarioBase() {
+        return salarioBase;
+    }
+
+    public void setSalarioBase(double salarioBase) {
+        this.salarioBase = salarioBase;
+    }
+
+    public double getHorasTrabajadas() {
         return horasTrabajadas;
+    }
+
+    public void setHorasTrabajadas(double horasTrabajadas) {
+        this.horasTrabajadas = (int) horasTrabajadas;
     }
 
     public void setHorasTrabajadas(int horasTrabajadas) {
@@ -57,9 +68,13 @@ public class EmpleadoSalud extends Empleado {
 
     @Override
     public double calcularSalario() {
-        return salarioBase + (salarioBase*0.012*horasTrabajadas);
+        return salarioBase + (salarioBase * 0.012 * horasTrabajadas);
+    }
+
+    public String getCarrera() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
-    
-    
+
+
 }
